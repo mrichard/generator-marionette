@@ -1,0 +1,37 @@
+{
+  "name" : "generator-marionette",
+  "version" : "0.0.1",
+  "keywords": [
+    "yeoman-generator",
+    "yeoman",
+    "generator",
+    "framework",
+    "mvc"
+  ],
+  "homepage": "https://github.com/mrichard/generator-marionette",
+  "bugs": "https://github.com/mrichard/generator-marionette/issues",
+  "author": "Michel Richard (clone of backbone amd generator)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mrichard/generator-marionette.git"
+  },
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "dependencies": {
+    "yeoman-generator": "~0.10.2",
+    "underscore.string": "~2.3.1",
+    "generator-buster": "~0.0.1"
+  },
+  "devDependencies": {
+    "mocha": "~1.8.1"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "licenses": [
+    {
+      "type": "BSD"
+    }
+  ]
+}
