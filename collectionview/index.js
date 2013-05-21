@@ -17,7 +17,7 @@ function Generator() {
   this.option('coffee', { desc: 'CoffeeScript instead standard JavaScript' });
 
   if ( this.itemview && this.options['create-all'] ) {
-    this.hookFor('backbone-amd', { as: 'itemview', args: [this.itemview], options: { options: this.options } });
+    this.hookFor('marionette', { as: 'itemview', args: [this.itemview], options: { options: this.options } });
   }
 }
 

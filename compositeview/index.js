@@ -23,8 +23,8 @@ function Generator() {
 
 
   if ( this.itemview && this.options['create-all'] ) {
-    this.hookFor('backbone-amd', { as: 'itemview', args: [this.itemview], options: { options: this.options } });
-    this.hookFor('backbone-amd', { as: 'tmpl', args: [this.tmplOrig, this.compTmplLocation], options: this.options });
+    this.hookFor('marionette', { as: 'itemview', args: [this.itemview], options: { options: this.options } });
+    this.hookFor('marionette', { as: 'tmpl', args: [this.tmplOrig, this.compTmplLocation], options: this.options });
   }
 }
 

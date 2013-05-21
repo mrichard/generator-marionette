@@ -1,7 +1,7 @@
 generator-marionette
 ======================
 
-Yeoman generator for Backbone with AMD capabilities
+Yeoman generator for Marionette and Backbone with AMD capabilities
 
 Install
 -------

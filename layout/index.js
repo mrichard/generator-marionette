@@ -21,7 +21,7 @@ function Generator() {
   this.tmplLocation = 'layout';
 
   if ( this.tmplOrig && this.options['create-all'] ) {
-    this.hookFor('backbone-amd', { as: 'tmpl', args: [this.tmplOrig, this.tmplLocation], options: this.options });
+    this.hookFor('marionette', { as: 'tmpl', args: [this.tmplOrig, this.tmplLocation], options: this.options });
   }
 }
 
