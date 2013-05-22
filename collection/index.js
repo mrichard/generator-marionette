@@ -7,14 +7,14 @@ module.exports = Generator;
 
 function Generator() {
   generator.NamedBase.apply(this, arguments);
-  var dirPath = this.options.coffee ? '../templates/coffeescript/' : '../templates/javascript';
+  var dirPath = '../templates/javascript';
   this.sourceRoot(path.join(__dirname, dirPath));
 
   this.argument('model', { type: String, required: false });
   this.argument('inherit', { type: String, required: false });
 
   this.option('create-all', { desc: 'Create a new model for this collection' });
-  this.option('coffee', { desc: 'CoffeeScript instead standard JavaScript' });
+  
 
   if (this.model && this.options['create-all']) {
     this.hookFor('marionette', { as: 'model', args: [this.model], options: this.options })
@@ -24,6 +24,6 @@ function Generator() {
 util.inherits(Generator, generator.NamedBase);
 
 Generator.prototype.createViewFiles = function createViewFiles() {
-  var ext = this.options.coffee ? 'coffee' : 'js';
+  var ext = 'js';
   this.template('collection.' + ext, path.join('app/scripts/collections', this.name + '.' + ext));
 };

@@ -7,13 +7,13 @@ module.exports = Generator;
 
 function Generator() {
   generator.NamedBase.apply(this, arguments);
-  var dirPath = this.options.coffee ? '../templates/coffeescript/' : '../templates/javascript';
+  var dirPath = '../templates/javascript';
   this.sourceRoot(path.join(__dirname, dirPath));
 
   this.argument('inherit', { type: String, required: false });
 
   this.option('create-all', { desc: 'Create a new model for this collection' });
-  this.option('coffee', { desc: 'CoffeeScript instead standard JavaScript' });
+  
 
   /* set the template name which is auto created */
   this.tmplOrig = this.name;
@@ -29,6 +29,6 @@ util.inherits(Generator, generator.NamedBase);
 
 Generator.prototype.createLayoutFiles = function createLayoutFiles() {
 
-  var ext = this.options.coffee ? 'coffee' : 'js';
+  var ext = 'js';
   this.template('layout.' + ext, path.join('app/scripts/views/layout', this.name + '.' + ext));
 };
