@@ -15,8 +15,8 @@ app.configure(function(){
     app.set('views', __dirname + '../app/scripts/views');
 });
 
-app.get('/hello.txt', function(req, res){
-  res.send('Hello World');
+app.get('/', function(req, res){
+  res.sendfile( path.join( __dirname, '../app/index.html' ) );
 });
 
 
