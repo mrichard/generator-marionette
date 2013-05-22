@@ -5,7 +5,8 @@
     "express": "~3.2.4",
     "request": "~2.21.0",
     "async": "~0.2.8",
-    "socket.io": "~0.9.14"
+    "socket.io": "~0.9.14",
+    "express-hbs": "~0.2.0"
   },
   "devDependencies": {
     "grunt": "~0.4.1",

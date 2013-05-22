@@ -37,11 +37,11 @@ module.exports = function (grunt) {
                 tasks: ['compass']
             },
             express: {
-                files:  [ 
-                    '<%= yeoman.app %>/*.html',
-                    '{.tmp,<%= yeoman.app %>}/styles/{,*/}*.css',
-                    '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
-                    '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}' 
+                files:[
+                    '<%%= yeoman.app %>/*.html',
+                    '{.tmp,<%%= yeoman.app %>}/styles/{,*/}*.css',
+                    '{.tmp,<%%= yeoman.app %>}/scripts/{,*/}*.js',
+                    '<%%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}'
                 ],
                 tasks:  [ 'express:dev', 'livereload' ]
             },
@@ -113,7 +113,7 @@ module.exports = function (grunt) {
         express: {
             options: {
                 // Override defaults here
-                port: '<%= connect.options.port %>'
+                port: '<%%= connect.options.port %>'
             },
             dev: {
                 options: {
@@ -371,10 +371,8 @@ module.exports = function (grunt) {
         grunt.task.run([
             'clean:server',
             'coffee:dist',
-            'createDefaultTemplate',<% if (templateFramework === 'mustache') { %>
-            'mustache',<% } else if (templateFramework === 'handlebars') { %>
-            'handlebars',<% } else { %>
-            'jst',<% } %>
+            'createDefaultTemplate',
+            'handlebars',
             'compass:server',
             'express:dev', 
             'livereload',
