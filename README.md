@@ -13,7 +13,7 @@ You can install this generator by two ways, clonning repo and linking or install
 
 Or to install by npm run:
 
-    $ npm install generator-marionette NOTE DONE YET!!!
+    $ npm install git://github.com/mrichard/generator-marionette.git
 
 Bootstrap project
 -----------------

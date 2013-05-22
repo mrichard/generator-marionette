@@ -1,0 +1,19 @@
+{
+  "name": "<%= _.slugify(appname) %>",
+  "version": "0.0.0",
+  "dependencies": {
+    "sass-bootstrap": "~2.3.0",
+    "jquery": "~1.9.0",
+    "requirejs": "~2.1.5",
+    "requirejs-text": "~2.0.5",
+    "backbone-amd": "~1.0.0",
+    "underscore-amd": "~1.4.4",
+    "modernizr": "~2.6.2",
+    "backbone.marionette": "~1.0.2",
+    "backbone.wreqr": "~0.2.0",
+    "backbone.babysitter": "~0.0.6",
+    "require-handlebars-plugin": "~0.4.0",
+    "backbone.marionette.handlebars": "~0.2.0"
+  },
+  "devDependencies": {}
+}
