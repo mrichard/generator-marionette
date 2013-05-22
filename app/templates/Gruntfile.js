@@ -36,6 +36,15 @@ module.exports = function (grunt) {
                 files: ['<%%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
                 tasks: ['compass']
             },
+            express: {
+                files:  [ 
+                    '<%= yeoman.app %>/*.html',
+                    '{.tmp,<%= yeoman.app %>}/styles/{,*/}*.css',
+                    '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
+                    '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}' 
+                ],
+                tasks:  [ 'express:dev', 'livereload' ]
+            },
             livereload: {
                 files: [
                     '<%%= yeoman.app %>/*.html',
@@ -98,6 +107,27 @@ module.exports = function (grunt) {
                             mountFolder(connect, 'dist')
                         ];
                     }
+                }
+            }
+        },
+        express: {
+            options: {
+                // Override defaults here
+                port: '<%= connect.options.port %>'
+            },
+            dev: {
+                options: {
+                    script: 'server/app.js'
+                }
+            },
+            prod: {
+                options: {
+                    script: 'server/app.js'
+                }
+            },
+            test: {
+                options: {
+                    script: 'server/app.js'
                 }
             }
         },
@@ -328,6 +358,26 @@ module.exports = function (grunt) {
             'compass:server',
             'livereload-start',
             'connect:livereload',
+            'open',
+            'watch'
+        ]);
+    });
+
+    grunt.registerTask('expressserver', function (target) {
+        if (target === 'dist') {
+            return grunt.task.run(['build', 'open', 'connect:dist:keepalive']);
+        }
+
+        grunt.task.run([
+            'clean:server',
+            'coffee:dist',
+            'createDefaultTemplate',<% if (templateFramework === 'mustache') { %>
+            'mustache',<% } else if (templateFramework === 'handlebars') { %>
+            'handlebars',<% } else { %>
+            'jst',<% } %>
+            'compass:server',
+            'express:dev', 
+            'livereload',
             'open',
             'watch'
         ]);

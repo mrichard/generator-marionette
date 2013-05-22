@@ -93,6 +93,9 @@ Generator.prototype.bootstrapJs = function bootstrapJs() {
 
 Generator.prototype.setupEnv = function setupEnv() {
   this.mkdir('app/templates');
+
+  this.mkdir('server');
+
   this.mkdir('app');
   this.mkdir('app/scripts');
   this.mkdir('app/scripts/vendor/');
@@ -102,6 +105,8 @@ Generator.prototype.setupEnv = function setupEnv() {
   this.template('app/favicon.ico');
   this.template('app/robots.txt');
   this.copy('app/htaccess', 'app/.htaccess');
+
+  this.copy('server/app.js', 'server/app.js')
   
   this.copy( 'app/index.html', 'app/index.html' );
   this.copy( 'app/main.js', 'app/scripts/main.js' );
