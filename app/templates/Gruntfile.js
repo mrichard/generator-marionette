@@ -376,8 +376,8 @@ module.exports = function (grunt) {
             'compass:server',
             'express:dev',
             'livereload-start',
-            'watch',
             'open',
+            'watch'
         ]);
     });
 

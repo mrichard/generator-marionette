@@ -20,6 +20,7 @@ app.use(function(req, res, next){
 });
 
 app.use(express.static( path.join( __dirname, '../app') ));
+app.use(express.static( path.join( __dirname, '../.tmp') ));
 
 app.get('/', function(req, res){
   res.sendfile( path.join( __dirname, '../app/index.html' ) );
