@@ -374,10 +374,10 @@ module.exports = function (grunt) {
             'createDefaultTemplate',
             'handlebars',
             'compass:server',
-            'express:dev', 
-            'livereload',
+            'express:dev',
+            'livereload-start',
+            'watch',
             'open',
-            'watch'
         ]);
     });
 

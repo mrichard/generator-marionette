@@ -2,7 +2,7 @@ TO DO:
 
 auto generate failing unit tests
 fix documentation
-Get express to work as server
+Get express to work as server: STATIC not serving
 
 
 
