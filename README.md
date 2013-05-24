@@ -1,18 +1,30 @@
-TO DO:
-
-auto generate failing unit tests
-fix documentation
-Get express to work as server: STATIC not serving
-
-
-
 generator-marionette
 ======================
 
-Yeoman generator for Marionette and Backbone with AMD capabilities
+Yeoman generator for Express, Marionette and Backbone with AMD
+
+Stack
+-------
+Server: Node, Express, Socket IO. Faye
+DB: Mongo
+ODM: Mongoose
+Client: Backbone, Marionette, jQuery, Require, Handlebars, SASS-Bootstrap
+Tooling: Yeoman, Bower, Grunt
+
+
 
 Install
 -------
+First make sure you have MongoDB, Node, Npm, Yeoman, Bower and Grunt installed.
+
+Install mongoDB with: brew install mongodb or visit http://www.mongodb.org/
+
+Visit nodejs.org to install node and NPM
+
+To install Yeoman, Bower and Grunt run: npm install -g yo grunt-cli bower
+
+Install mocha generator: npm -g install generator-mocha
+
 You can install this generator by two ways, clonning repo and linking or install by npm. To install clonnig repo run:
 
     $ git clone https://github.com/mrichard/generator-marionette.git
@@ -23,11 +35,15 @@ Or to install by npm run:
 
     $ npm install git://github.com/mrichard/generator-marionette.git
 
+
+
 Bootstrap project
 -----------------
 To bootstrap a new project simply run
 
     $ yo marionette
+
+You have options to include a few Node packages
 
 
 
@@ -36,10 +52,6 @@ Create routers
 You can generate routers too with
 
     $ yo marionette:router router-name
-
-Or with coffee option
-
-    $ yo marionette:router router-name --coffee
 
 
 
@@ -52,6 +64,7 @@ To add a Backbone model to the project use the model generator like this
 Or to inherit from an existing model
 
     $ yo marionette:model model-name --inherit model-name
+
 
 
 Create collection
@@ -81,9 +94,6 @@ Backbone works with view definitions, to create one use this command
 
     $ yo marionette:view view-name
 
-If you prefer CoffeeScript instead just add --coffee flag
-
-    $ yo marionette:view view-name --coffee
 
 
 
@@ -170,12 +180,11 @@ Create a handle bars tmpl
 
 Testing
 -------
-Default test framework for this generator is buster.js but you cant specify another like mocha
+Default test framework for this generator is mocha
 
-    $ yo marionette --test-framework=mocha
 
-But if you work with buster you have to do a couple of things first. Due buster framework issues you have to install node 0.9.9, at this time don't work with node 0.10.0 and ensure to install globally buster and plantomjs:
 
-    $ npm install -g buster phantomjs
-
-Instructions to install generator-buster follow this link https://github.com/abiee/generator-buster
+TO DO's
+------- 
+auto generate failing unit tests
+install Bower mocha, chai etc

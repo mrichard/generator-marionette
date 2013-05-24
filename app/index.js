@@ -39,10 +39,50 @@ Generator.prototype.askFor = function askFor() {
   console.log(welcome);
   console.log('Out of the box I include HTML5 Boilerplate, jQuery, Backbone.js, Marionette, Require and Modernizr.');
 
-  this.compassBootstrap = true;
-  this.includeRequireJS = true;
 
-  cb();
+  var prompts = [{
+    name: 'useMongoDB',
+    message: 'Would you like to include MongoDB for storage?',
+    default: 'Y/n',
+    warning: 'Yes: Ok cool.'
+  },
+  {
+    name: 'useSocketIO',
+    message: 'Would you like to include Socket IO for real time communication?',
+    default: 'Y/n',
+    warning: 'Yes: Ok cool.'
+  },
+  {
+    name: 'useFaye',
+    message: 'Would you like to include Faye for real time communication?',
+    default: 'Y/n',
+    warning: 'Yes: Ok cool.'
+  },
+  {
+    name: 'useBaucis',
+    message: 'Would you like to include Baucis for REST?',
+    default: 'Y/n',
+    warning: 'Yes: Ok cool.'
+  }];
+
+  this.prompt(prompts, function (err, props) {
+    if (err) {
+      return this.emit('error', err);
+    }
+
+    // manually deal with the response, get back and store the results.
+    // we change a bit this way of doing to automatically do this in the self.prompt() method.
+    this.useMongoDB = (/y/i).test(props.useMongoDB);
+    this.useSocketIO = (/y/i).test(props.useSocketIO);
+    this.useFaye = (/y/i).test(props.useFaye);
+    this.useBaucis = (/y/i).test(props.useBaucis);
+
+    //dummy vars for legacy
+    this.compassBootstrap = true;
+    this.includeRequireJS = true;
+
+    cb();
+  }.bind(this));
 };
 
 Generator.prototype.git = function git() {
