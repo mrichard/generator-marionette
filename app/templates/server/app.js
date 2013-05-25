@@ -6,33 +6,15 @@ var path = require('path');
 var async = require('async');
 var hbs = require('express-hbs');
 <% if(useBaucis){ %>var baucis = require('baucis');<% } %>
-<% if(useMongoose){ %>var mongoose = require('mongoose');<% } %>
 <% if(useFaye){ %>var faye = require('faye');<% } %>
 <% if(useSocketIO){ %>var socketIO = require('socket.io');<% } %>
 
+
 <% if(useMongoose){ %>
 // start mongoose
-var db = mongoose.createConnection( 'localhost', 'Products' );
-db.once('open', function() {
-
-	// define a schema
-	var productSchema = new mongoose.Schema({
-		brand: String,
-		productCode: String
-	});
-
-	// define a model
-	var Product = db.model( 'Product', productSchema );
-
-	// create an instance
-	var productOne = new Product({ brand: 'Gucci', productCode: '04123123123' });
-
-	// print
-	console.dir(productOne);
-
-	// save the instance to the db
-	productOne.save();
-});
+var mongooseSetup = require('./mongooseInit');
+mongooseSetup.createDB( 'Products' );
+mongooseSetup.testDB();
 <% } %>
 
 // init express

@@ -147,6 +147,7 @@ Generator.prototype.setupEnv = function setupEnv() {
   this.copy('app/htaccess', 'app/.htaccess');
 
   this.template('server/app.js', 'server/app.js');
+  this.copy('server/mongooseInit.js', 'server/mongooseInit.js');
 
   this.copy( 'app/index.html', 'app/index.html' );
   this.copy( 'app/main.js', 'app/scripts/main.js' );
