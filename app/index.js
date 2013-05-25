@@ -41,7 +41,7 @@ Generator.prototype.askFor = function askFor() {
 
 
   var prompts = [{
-    name: 'useMongoDB',
+    name: 'useMongoose',
     message: 'Would you like to include MongoDB for storage?',
     default: 'Y/n',
     warning: 'Yes: Ok cool.'
@@ -72,7 +72,7 @@ Generator.prototype.askFor = function askFor() {
 
     // manually deal with the response, get back and store the results.
     // we change a bit this way of doing to automatically do this in the self.prompt() method.
-    this.useMongoDB = (/y/i).test(props.useMongoDB);
+    this.useMongoose = (/y/i).test(props.useMongoose);
     this.useSocketIO = (/y/i).test(props.useSocketIO);
     this.useFaye = (/y/i).test(props.useFaye);
     this.useBaucis = (/y/i).test(props.useBaucis);
@@ -146,8 +146,8 @@ Generator.prototype.setupEnv = function setupEnv() {
   this.template('app/robots.txt');
   this.copy('app/htaccess', 'app/.htaccess');
 
-  this.copy('server/app.js', 'server/app.js')
-  
+  this.template('server/app.js', 'server/app.js');
+
   this.copy( 'app/index.html', 'app/index.html' );
   this.copy( 'app/main.js', 'app/scripts/main.js' );
   this.copy( 'app/init.js', 'app/scripts/init.js' );
