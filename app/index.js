@@ -153,6 +153,7 @@ Generator.prototype.setupEnv = function setupEnv() {
   this.copy( 'app/main.js', 'app/scripts/main.js' );
   this.copy( 'app/init.js', 'app/scripts/init.js' );
   this.copy( 'app/application.js', 'app/scripts/application.js' );
+  this.copy( 'app/communicator.js', 'app/scripts/communicator.js' );
 
   this.copy( 'app/welcome.hbs', 'app/templates/welcome.hbs');
 };

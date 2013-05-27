@@ -1,34 +1,40 @@
-define([
-	'backbone'<% if (!_.isEmpty(tmpl)) { %>,
-	'hbs!tmpl/<% if (!_.isEmpty(tmplLocation)) { %><%= tmplLocation%>/<% } %><%= tmpl %>'<% } %><% if (!_.isEmpty(inherit)) { %>,
-	'views/layout/<%= inherit %>'<% } %>
-],
-function( <%= _.classify('backbone') %><% if (!_.isEmpty(tmpl)) { %>, <%= _.classify(tmpl) %> <% } %><% if (!_.isEmpty(inherit)) { %>, <%=_.classify(inherit)%><% } %> ) {
+(function() {
+	'use strict';
 
-	/* Return a Layout class definition */
-	return <% if (!_.isEmpty(inherit)) { %><%=_.classify(inherit)%>.extend <% } else { %>Backbone.Marionette.Layout.extend<% } %>({
-	
-		initialize: function() {
-			console.log("initialize a <%= _.classify(name) %> Layout");
-		},
-		<% if (!_.isEmpty(tmpl)) { %>
-    	template: {
-			type: 'handlebars',
-			template: <%= _.classify(tmpl) %>
-		},
-    	<% } %>
+	var root = this;
 
-    	/* Layout sub regions */
-    	regions: {},
+	root.define([
+		'backbone'<% if (!_.isEmpty(tmpl)) { %>,
+		'hbs!tmpl/<% if (!_.isEmpty(tmplLocation)) { %><%= tmplLocation%>/<% } %><%= tmpl %>'<% } %><% if (!_.isEmpty(inherit)) { %>,
+		'views/layout/<%= inherit %>'<% } %>
+	],
+	function( <%= _.classify('backbone') %><% if (!_.isEmpty(tmpl)) { %>, <%= _.classify(tmpl) %> <% } %><% if (!_.isEmpty(inherit)) { %>, <%=_.classify(inherit)%><% } %> ) {
 
-    	/* ui selector cache */
-    	ui: {},
+		/* Return a Layout class definition */
+		return <% if (!_.isEmpty(inherit)) { %><%=_.classify(inherit)%>.extend <% } else { %>Backbone.Marionette.Layout.extend<% } %>({
+		
+			initialize: function() {
+				console.log("initialize a <%= _.classify(name) %> Layout");
+			},
+			<% if (!_.isEmpty(tmpl)) { %>
+	    	template: {
+				type: 'handlebars',
+				template: <%= _.classify(tmpl) %>
+			},
+	    	<% } %>
 
-		/* Ui events hash */
-		events: {},
+	    	/* Layout sub regions */
+	    	regions: {},
 
-		/* on render callback */
-		onRender: function() {}
+	    	/* ui selector cache */
+	    	ui: {},
+
+			/* Ui events hash */
+			events: {},
+
+			/* on render callback */
+			onRender: function() {}
+		});
+
 	});
-
-});
+}).call( this );

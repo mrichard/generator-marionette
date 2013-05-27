@@ -12,6 +12,33 @@ Client: Backbone, Marionette, jQuery, Require, Handlebars, SASS-Bootstrap
 Tooling: Yeoman, Bower, Grunt
 
 
+Directory structure
+-------
+app/                                --> client side files
+    /bower_components               --> bower installs
+    /images
+    /scripts
+        /vendor                     --> 3rd party scripts
+        /models
+        /collections
+        /controllers
+        /routers
+        /regions
+        /views
+            /item
+            /collection
+            /composite
+            /layout
+        init.js                     --> require configuration
+        main.js                     --> application starting point
+        application.js              --> application file
+
+    /styles                         --> scss files
+    /templates                      --> handlebar templates
+
+server/                             --> node server files
+test/                               --> unittesting
+
 
 Install
 -------
@@ -186,5 +213,6 @@ Default test framework for this generator is mocha
 
 TO DO's
 ------- 
+build a controller generator
 auto generate failing unit tests
 install Bower mocha, chai etc

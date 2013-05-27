@@ -1,15 +1,18 @@
-require([
-    'backbone',
-    'application',
+(function() {
+    'use strict';
 
-    /* requires that are just needed before app runs */
-    'backbone.marionette',
-    'bootstrap',
-    'marionette.handlebars'
-],
+    var root = this;
 
-function ( Backbone, App ) {
-	'use strict';
+    root.require([
+		'backbone',
+		'application',
 
-	App.start();
-});
+		/* requires that are just needed before app runs */
+		'backbone.marionette',
+		'bootstrap',
+		'marionette.handlebars'
+	],
+	function ( Backbone, App ) {
+		App.start();
+	});
+}).call( this );
