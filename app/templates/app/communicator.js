@@ -9,7 +9,6 @@
 	],
 	function( Backbone ) {
 
-		/* Return a Region class definition */
 		return Backbone.Marionette.Controller.extend({
 			initialize: function( options ) {
 				console.log("initialize a Communicator");

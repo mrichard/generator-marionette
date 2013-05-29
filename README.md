@@ -8,7 +8,22 @@ Stack
 Server: Node, Express, Socket IO. Faye
 DB: Mongo
 ODM: Mongoose
-Client: Backbone, Marionette, jQuery, Require, Handlebars, SASS-Bootstrap
+Client: 
+    Backbone - 
+        http://backbonejs.org/
+    Marionette - 
+        https://github.com/marionettejs/backbone.marionette
+    jQuery - 
+        http://jquery.com/
+    Require - 
+        http://requirejs.org/
+    Handlebars - 
+        http://handlebarsjs.com/
+        https://github.com/SlexAxton/require-handlebars-plugin
+        https://github.com/asciidisco/Backbone.Marionette.Handlebars
+    SASS-Bootstrap -
+        http://twitter.github.io/bootstrap
+        https://github.com/thomas-mcdonald/bootstrap-sass
 Tooling: Yeoman, Bower, Grunt
 
 
@@ -194,6 +209,12 @@ Or maybe you want to create both, Layout and template on one step
     $ yo marionette:layout layout-name --inherit layout-name --create-all
 
 
+
+Create controller
+------------
+Create a Marionette Controller
+
+    $ yo marionette:controller controller-name --inherit controller-name
 
 
 Create templates

@@ -9,7 +9,6 @@
 	],
 	function( <%= _.classify('backbone') %><% if (!_.isEmpty(inherit)) { %>, <%=_.classify(inherit)%><% } %> ) {
 
-		/* Return a Region class definition */
 		return <% if (!_.isEmpty(inherit)) { %><%=_.classify(inherit)%>.extend <% } else { %>Backbone.Marionette.Controller.extend<% } %>({
 		
 			initialize: function( options ) {

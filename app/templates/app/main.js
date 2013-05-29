@@ -10,7 +10,8 @@
 		/* requires that are just needed before app runs */
 		'backbone.marionette',
 		'bootstrap',
-		'marionette.handlebars'
+		'marionette.handlebars',
+		'regionManager'
 	],
 	function ( Backbone, App ) {
 		App.start();
