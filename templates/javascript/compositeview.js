@@ -18,7 +18,7 @@
 				console.log("initialize a <%= _.classify(name) %> CompositeView");
 			},
 			<% if (!_.isEmpty(itemview)) { %>
-	    	itemview: <%= _.classify(itemview) %>,<% } %>
+	    	itemView: <%= _.classify(itemview) %>,<% } %>
 	    	<% if (!_.isEmpty(compTmpl)) { %>
 	    	template: {
 				type: 'handlebars',
