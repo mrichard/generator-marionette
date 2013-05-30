@@ -9,7 +9,7 @@
 	],
 	function( Backbone ) {
 
-		return Backbone.Marionette.Controller.extend({
+		var Communicator = Backbone.Marionette.Controller.extend({
 			initialize: function( options ) {
 				console.log("initialize a Communicator");
 
@@ -23,5 +23,7 @@
 				this.command = new Backbone.Wreqr.Commands();
 			}
 		});
+
+		return new Communicator();
 	});
 }).call( this );
