@@ -90,6 +90,10 @@ To bootstrap a new project simply run
 
 You have options to include a few Node packages
 
+To start the app run
+
+    $ grunt expressserver
+
 
 
 Create routers
