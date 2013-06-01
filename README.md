@@ -70,15 +70,15 @@ To install Yeoman, Bower and Grunt run: npm install -g yo grunt-cli bower
 
 Install mocha generator: npm -g install generator-mocha
 
-You can install this generator by two ways, clonning repo and linking or install by npm. To install clonnig repo run:
+Install marionette generator:
 
     $ git clone https://github.com/mrichard/generator-marionette.git
     $ generator-marionette
     $ npm link
 
-Or to install by npm run:
+Or::
 
-    $ npm install git://github.com/mrichard/generator-marionette.git
+    $ npm install generator-marionette
 
 
 
