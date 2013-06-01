@@ -17,7 +17,7 @@
 				console.log("initialize a <%= _.classify(name) %> CollectionView");
 			},
 			<% if (!_.isEmpty(itemview)) { %>
-	    	itemview: <%= _.classify(itemview) %>,
+	    	itemView: <%= _.classify(itemview) %>,
 	    	<% } %>
 
 	    	/* ui selector cache */
