@@ -9,9 +9,9 @@ Stack
     * Node: http://nodejs.org/
     * Express: http://expressjs.com/
     * Socket IO: http://socket.io/
-    * Faye:
-- DB: Mongo: 
-- ODM: Mongoose:
+    * Faye: http://faye.jcoglan.com/
+- DB: Mongo: http://www.mongodb.org/
+- ODM: Mongoose: http://mongoosejs.com
 - Client: 
     * Backbone: http://backbonejs.org/
     * Marionette: https://github.com/marionettejs/backbone.marionette
@@ -25,7 +25,7 @@ Stack
         - http://twitter.github.io/bootstrap
         - https://github.com/thomas-mcdonald/bootstrap-sass
 - Tooling: 
-    * Yeoman:
+    * Yeoman: http://yeoman.io/
     * Bower:
     * Grunt
 
@@ -237,6 +237,5 @@ Default test framework for this generator is mocha
 
 TO DO's
 ------- 
-build a controller generator
-auto generate failing unit tests
-install Bower mocha, chai etc
+* auto generate failing unit tests
+* install Bower mocha, chai etc
