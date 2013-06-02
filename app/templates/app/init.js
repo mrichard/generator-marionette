@@ -8,7 +8,7 @@
         baseUrl: "/scripts",
 
         /* starting point for application */
-        deps: ['main'],
+        deps: ['backbone.marionette', 'bootstrap', 'marionette.handlebars', 'main'],
 
 
         shim: {
