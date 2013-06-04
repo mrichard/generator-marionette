@@ -58,6 +58,7 @@ Directory structure
 - test/                               --> unittesting
 
 
+
 Install
 -------
 First make sure you have MongoDB, Node, Npm, Yeoman, Bower and Grunt installed.
@@ -71,10 +72,6 @@ To install Yeoman, Bower and Grunt run: npm install -g yo grunt-cli bower
 Install mocha generator: npm -g install generator-mocha
 
 Install marionette generator
-
-    $ npm install generator-marionette
-
-Or:
 
     $ npm install generator-marionette
 
