@@ -63,17 +63,25 @@ Install
 -------
 First make sure you have MongoDB, Node, Npm, Yeoman, Bower and Grunt installed.
 
-Install mongoDB with: brew install mongodb or visit http://www.mongodb.org/
+Install mongoDB with: 
+
+    $ brew install mongodb 
+
+Or visit http://www.mongodb.org/
 
 Visit nodejs.org to install node and NPM
 
-To install Yeoman, Bower and Grunt run: npm install -g yo grunt-cli bower
+To install Yeoman, Bower and Grunt run: 
 
-Install mocha generator: npm -g install generator-mocha
+    $ npm install -g yo grunt-cli bower
+
+Install mocha generator: 
+
+    $ npm install -g generator-mocha
 
 Install marionette generator
 
-    $ npm install generator-marionette
+    $ npm install (-g) generator-marionette
 
 
 
