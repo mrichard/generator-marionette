@@ -102,16 +102,16 @@ Recommends
 -----------------
 The generator is most useful using the --creat-all flag. In the example:
 
-    $ yo marionette:compositeview people --itemview person --create-all
+    $ yo marionette:compositeview peopleview --itemview personview --create-all
 
 You will get the following files:
-   * create app/scripts/views/composite/people.js
-   * invoke   marionette:itemview
-   * create     app/scripts/views/item/person.js
-   * invoke       marionette:tmpl
-   * create         app/templates/item/person_tmpl.hbs
-   * invoke   marionette:tmpl
-   * create     app/templates/composite/people_tmpl.hbs
+   * create **app/scripts/views/composite/people.js**
+   * invoke marionette:itemview
+   * create **app/scripts/views/item/person.js**
+   * invoke marionette:tmpl
+   * create **app/templates/item/person_tmpl.hbs**
+   * invoke marionette:tmpl
+   * create **app/templates/composite/people_tmpl.hbs**
 
 
 Create routers
