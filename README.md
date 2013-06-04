@@ -5,54 +5,57 @@ Yeoman generator for Express, Marionette and Backbone with AMD
 
 Stack
 -------
-Server: Node, Express, Socket IO. Faye
-DB: Mongo
-ODM: Mongoose
-Client: 
-    Backbone - 
-        http://backbonejs.org/
-    Marionette - 
-        https://github.com/marionettejs/backbone.marionette
-    jQuery - 
-        http://jquery.com/
-    Require - 
-        http://requirejs.org/
-    Handlebars - 
-        http://handlebarsjs.com/
-        https://github.com/SlexAxton/require-handlebars-plugin
-        https://github.com/asciidisco/Backbone.Marionette.Handlebars
-    SASS-Bootstrap -
-        http://twitter.github.io/bootstrap
-        https://github.com/thomas-mcdonald/bootstrap-sass
-Tooling: Yeoman, Bower, Grunt
+- Server: 
+    * Node: http://nodejs.org/
+    * Express: http://expressjs.com/
+    * Socket IO: http://socket.io/
+    * Faye: http://faye.jcoglan.com/
+- DB: Mongo: http://www.mongodb.org/
+- ODM: Mongoose: http://mongoosejs.com
+- Client: 
+    * Backbone: http://backbonejs.org/
+    * Marionette: https://github.com/marionettejs/backbone.marionette
+    * jQuery: http://jquery.com/
+    * Require: http://requirejs.org/
+    * Handlebars: 
+        - http://handlebarsjs.com/
+        - https://github.com/SlexAxton/require-handlebars-plugin
+        - https://github.com/asciidisco/Backbone.Marionette.Handlebars
+    * SASS-Bootstrap:
+        - http://twitter.github.io/bootstrap
+        - https://github.com/thomas-mcdonald/bootstrap-sass
+- Tooling: 
+    * Yeoman: http://yeoman.io/
+    * Bower:
+    * Grunt
 
 
 Directory structure
 -------
-app/                                --> client side files
-    /bower_components               --> bower installs
-    /images
-    /scripts
-        /vendor                     --> 3rd party scripts
-        /models
-        /collections
-        /controllers
-        /routers
-        /regions
-        /views
-            /item
-            /collection
-            /composite
-            /layout
-        init.js                     --> require configuration
-        main.js                     --> application starting point
-        application.js              --> application file
+- app/                                --> client side files
+    * /bower_components               --> bower installs
+    * /images
+    * /scripts
+        - /vendor                     --> 3rd party scripts
+        - /models
+        - /collections
+        - /controllers
+        - /routers
+        - /regions
+        - /views
+            * /item
+            * /collection
+            * /composite
+            * /layout
+        - init.js                     --> require configuration
+        - main.js                     --> application starting point
+        - application.js              --> application file
 
-    /styles                         --> scss files
-    /templates                      --> handlebar templates
+    * /styles                         --> scss files
+    * /templates                      --> handlebar templates
 
-server/                             --> node server files
-test/                               --> unittesting
+- server/                             --> node server files
+- test/                               --> unittesting
 
 
 Install
@@ -67,13 +70,13 @@ To install Yeoman, Bower and Grunt run: npm install -g yo grunt-cli bower
 
 Install mocha generator: npm -g install generator-mocha
 
-You can install marionette generator
+Install marionette generator
 
     $ npm install generator-marionette
 
 Or:
 
-    $ npm install git://github.com/mrichard/generator-marionette.git
+    $ npm install generator-marionette
 
 
 
@@ -84,6 +87,10 @@ To bootstrap a new project simply run
     $ yo marionette
 
 You have options to include a few Node packages. The client side libraries are set for now. 
+
+To start the app run
+
+    $ grunt expressserver
 
 
 
@@ -246,4 +253,4 @@ TO DO's
 ------- 
 * Build a module generator
 * Auto generate failing unit tests
-
+* Create generator unit tests
