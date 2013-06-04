@@ -67,13 +67,11 @@ To install Yeoman, Bower and Grunt run: npm install -g yo grunt-cli bower
 
 Install mocha generator: npm -g install generator-mocha
 
-You can install this generator by two ways, clonning repo and linking or install by npm. To install clonnig repo run:
+You can install marionette generator
 
-    $ git clone https://github.com/mrichard/generator-marionette.git
-    $ generator-marionette
-    $ npm link
+    $ npm install generator-marionette
 
-Or to install by npm run:
+Or:
 
     $ npm install git://github.com/mrichard/generator-marionette.git
 
@@ -85,7 +83,7 @@ To bootstrap a new project simply run
 
     $ yo marionette
 
-You have options to include a few Node packages
+You have options to include a few Node packages. The client side libraries are set for now. 
 
 
 
@@ -132,7 +130,7 @@ Or you may want to inherit from another collection
 
 Create views
 ------------
-Backbone works with view definitions, to create one use this command
+Backbone works with view definitions, to create one use this command. It is recommended to use Marionette views instead of the standard Backbone view
 
     $ yo marionette:view view-name
 
@@ -141,33 +139,33 @@ Backbone works with view definitions, to create one use this command
 
 Create item views
 ------------
-Create a Marionette ItemView
+Create a Marionette ItemView and link to an existing template at location templates/[template-location]
 
-    $ yo marionette:itemview view-name --inherit view-name
+    $ yo marionette:itemview view-name 
 
-You can link to an existent template at location templates/[template-location]
+You may want to inherit from another itemview
 
     $ yo marionette:itemview view-name --inherit view-name
 
 Or maybe you want to create both, itemView and template on one step
 
-    $ yo marionette:itemview view-name --inherit view-name --create-all
+    $ yo marionette:itemview view-name --create-all
 
 
 
 Create collection views
 ------------
-Create a Marionette CollectionView
+Create a Marionette CollectionView that is associated to an existing itemview
 
-    $ yo marionette:collectionview view-name
+    $ yo marionette:collectionview view-name --itemview itemview-name
 
-You can link to an existant itemview 
+Or inherit from another collectionview
 
     $ yo marionette:collectionview view-name --itemview itemview-name --inherit view-name
 
-Or maybe you want to create both, itemview and collectionview. In that case you may want to create an itemview template as well
+Or maybe you want to create both, itemview (with template) and collectionview.
 
-    $ yo  marionette:collectionview view-name --itemview itemview-name --inherit view-name --create-all
+    $ yo  marionette:collectionview view-name --itemview itemview-name --create-all
 
 
 
@@ -176,11 +174,15 @@ Create composite views
 ------------
 Create a Marionette CompositeView
 
+    $ yo marionette:compositeview view-name --itemview itemview-name
+
+Or inherit from another CompositeView
+
     $ yo marionette:compositeview view-name --itemview itemview-name --inherit view-name
 
-Or maybe you want to create all, itemview and compositeview and both templates. In that case you may want to create an itemview template as well
+Or maybe you want to create all, itemview and compositeview and both templates. 
 
-    $ yo marionette:compositeview view-name --itemview itemview-name --inherit view-name --create-all
+    $ yo marionette:compositeview view-name --itemview itemview-name --create-all
 
 
 
@@ -189,6 +191,10 @@ Create regions
 ------------
 Create a Marionette Region
 
+    $ yo marionette:region region-name
+
+Or inherit from another Region
+
     $ yo marionette:region region-name --inherit region-name
 
 
@@ -196,23 +202,27 @@ Create a Marionette Region
 
 Create layouts
 ------------
-Create a Marionette Layout
+Create a Marionette Layout and link to an existing template at location templates/[template-location]
 
-    $ yo marionette:layout layout-name --inherit layout-name
+    $ yo marionette:layout layout-name
 
-You can link to an existent template at location templates/[template-location]
+Or inherit from another layout
 
     $ yo marionette:layout layout-name --inherit layout-name
 
 Or maybe you want to create both, Layout and template on one step
 
-    $ yo marionette:layout layout-name --inherit layout-name --create-all
+    $ yo marionette:layout layout-name --create-all
 
 
 
 Create controller
 ------------
 Create a Marionette Controller
+
+    $ yo marionette:controller controller-name
+
+Or inherit from another Controller
 
     $ yo marionette:controller controller-name --inherit controller-name
 
@@ -234,6 +244,6 @@ Default test framework for this generator is mocha
 
 TO DO's
 ------- 
-build a controller generator
-auto generate failing unit tests
-install Bower mocha, chai etc
+* Build a module generator
+* Auto generate failing unit tests
+

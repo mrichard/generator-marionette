@@ -5,6 +5,8 @@
     "yeoman-generator",
     "yeoman",
     "generator",
+    "marionette",
+    "backbone",
     "framework",
     "mvc"
   ],
