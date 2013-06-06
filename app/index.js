@@ -41,41 +41,33 @@ Generator.prototype.askFor = function askFor() {
 
 
   var prompts = [{
+    type: 'confirm',
     name: 'useMongoose',
-    message: 'Would you like to include MongoDB for storage?',
-    default: 'Y/n',
-    warning: 'Yes: Ok cool.'
+    message: 'Would you like to include MongoDB for storage?'
   },
   {
+    type: 'confirm',
     name: 'useSocketIO',
-    message: 'Would you like to include Socket IO for real time communication?',
-    default: 'Y/n',
-    warning: 'Yes: Ok cool.'
+    message: 'Would you like to include Socket IO for real time communication?'
   },
   {
+    type: 'confirm',
     name: 'useFaye',
-    message: 'Would you like to include Faye for real time communication?',
-    default: 'Y/n',
-    warning: 'Yes: Ok cool.'
+    message: 'Would you like to include Faye for real time communication?'
   },
   {
+    type: 'confirm',
     name: 'useBaucis',
-    message: 'Would you like to include Baucis for REST?',
-    default: 'Y/n',
-    warning: 'Yes: Ok cool.'
+    message: 'Would you like to include Baucis for REST?'
   }];
 
-  this.prompt(prompts, function (err, props) {
-    if (err) {
-      return this.emit('error', err);
-    }
-
+  this.prompt(prompts, function (props) {
     // manually deal with the response, get back and store the results.
     // we change a bit this way of doing to automatically do this in the self.prompt() method.
-    this.useMongoose = (/y/i).test(props.useMongoose);
-    this.useSocketIO = (/y/i).test(props.useSocketIO);
-    this.useFaye = (/y/i).test(props.useFaye);
-    this.useBaucis = (/y/i).test(props.useBaucis);
+    this.useMongoose = props.useMongoose;
+    this.useSocketIO = props.useSocketIO;
+    this.useFaye = props.useFaye;
+    this.useBaucis = props.useBaucis;
 
     //dummy vars for legacy
     this.compassBootstrap = true;
