@@ -25,6 +25,13 @@
 
 			/* add region facade */
 			addRegion: function( regionName, regionId ) {
+				var region = this.getRegion( regionName );
+
+				if( region ) {
+					console.log("REGION ALREADY CREATED TO JUST RETURN REF");
+					return region;
+				}
+				
 				return this._regionManager.addRegion( regionName, regionId );
 			},
 
