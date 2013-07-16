@@ -37,7 +37,7 @@ Generator.prototype.askFor = function askFor() {
   '\n ´   '+'`  |'.red+'° '+'´ Y'.red+' `\n';
 
   console.log(welcome);
-  console.log('Out of the box I include HTML5 Boilerplate, jQuery, Backbone.js, Marionette, Require and Modernizr.');
+  console.log('Out of the box I include HTML5 Boilerplate, jQuery, Backbone.js, Marionette, Handlebars, Require and Modernizr.');
 
 
   var prompts = [{
@@ -52,11 +52,6 @@ Generator.prototype.askFor = function askFor() {
   },
   {
     type: 'confirm',
-    name: 'useFaye',
-    message: 'Would you like to include Faye for real time communication?'
-  },
-  {
-    type: 'confirm',
     name: 'useBaucis',
     message: 'Would you like to include Baucis for REST?'
   }];
@@ -66,7 +61,6 @@ Generator.prototype.askFor = function askFor() {
     // we change a bit this way of doing to automatically do this in the self.prompt() method.
     this.useMongoose = props.useMongoose;
     this.useSocketIO = props.useSocketIO;
-    this.useFaye = props.useFaye;
     this.useBaucis = props.useBaucis;
 
     //dummy vars for legacy
