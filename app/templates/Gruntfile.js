@@ -65,7 +65,7 @@ module.exports = function (grunt) {
         // testing command
         exec: {
             mocha: {
-                command: 'mocha-phantomjs http://localhost:<%= connect.testserver.options.port %>/test',
+                command: 'mocha-phantomjs http://localhost:<%%= connect.testserver.options.port %>/test',
                 stdout: true
             }
         },
@@ -100,7 +100,7 @@ module.exports = function (grunt) {
             },
 
             testPage: {
-                path: 'http://localhost:<%= connect.testserver.options.port %>/test'
+                path: 'http://localhost:<%%= connect.testserver.options.port %>/test'
             }
         },
 
