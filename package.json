@@ -17,16 +17,15 @@
     "type": "git",
     "url": "https://github.com/mrichard/generator-marionette.git"
   },
-  "scripts": {
-    "test": "mocha --reporter spec"
-  },
   "dependencies": {
     "yeoman-generator": "~0.12.3",
     "underscore.string": "~2.3.1",
-    "generator-buster": "~0.0.1"
+    "generator-buster": "~0.0.1",
+    "generator-mocha-amd": "git://github.com/mrichard/generator-mocha-amd.git"
   },
   "devDependencies": {
-    "mocha": "~1.8.1"
+    "mocha": "~1.8.1",
+    "generator-mocha-amd": "git://github.com/mrichard/generator-mocha-amd.git"
   },
   "engines": {
     "node": ">=0.8.0"

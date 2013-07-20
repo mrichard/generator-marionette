@@ -36,10 +36,10 @@ module.exports = function (grunt) {
                     '{.tmp,<%%= yeoman.app %>}/styles/{,**/}*.css',
                     '{.tmp,<%%= yeoman.app %>}/scripts/{,**/}*.js',
                     '{.tmp,<%%= yeoman.app %>}/templates/{,**/}*.hbs',
-                    '<%%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
-                    'test/spec/{,**/}*.js'
+                    '<%%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}'<% if(useMocha){ %>,
+                    'test/spec/{,**/}*.js'<%}%>
                 ],
-                tasks: ['exec'],
+                <% if(useMocha){ %>tasks: ['exec'],<%}%>
                 options: {
                     livereload: true
                 }
@@ -51,7 +51,7 @@ module.exports = function (grunt) {
                 tasks: ['handlebars']
             }
         },
-
+        <% if(useMocha){ %>
         // testing server
         connect: {
             testserver: {
@@ -69,7 +69,7 @@ module.exports = function (grunt) {
                 stdout: true
             }
         },
-
+        <%}%>
         // express app
         express: {
             options: {
@@ -97,10 +97,6 @@ module.exports = function (grunt) {
         open: {
             server: {
                 path: 'http://localhost:<%%= express.options.port %>'
-            },
-
-            testPage: {
-                path: 'http://localhost:<%%= connect.testserver.options.port %>/test'
             }
         },
 
@@ -277,11 +273,13 @@ module.exports = function (grunt) {
             'compass:server',
             'connect:testserver',
             'express:dev',
+            <% if(useMocha){ %>'exec',<%}%>
             'open',
             'watch'
         ]);
     });
 
+    // todo fix these
     grunt.registerTask('test', [
         'clean:server',
         'createDefaultTemplate',

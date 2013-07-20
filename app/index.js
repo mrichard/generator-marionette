@@ -8,7 +8,7 @@ module.exports = Generator;
 function Generator(args, options, config) {
   yeoman.generators.Base.apply(this, arguments);
 
-  this.testFramework = this.options['test-framework'] || 'mocha';
+  this.testFramework = 'mocha-amd';
   this.templateFramework = 'handlebars';
   this.hookFor(this.testFramework, { as: 'app' });
 
@@ -54,6 +54,10 @@ Generator.prototype.askFor = function askFor() {
     type: 'confirm',
     name: 'useBaucis',
     message: 'Would you like to include Baucis for REST?'
+  }, {
+    type: 'confirm',
+    name: 'useMocha',
+    message: 'Would you like to include mocha unit testing?'
   }];
 
   this.prompt(prompts, function (props) {
@@ -62,6 +66,7 @@ Generator.prototype.askFor = function askFor() {
     this.useMongoose = props.useMongoose;
     this.useSocketIO = props.useSocketIO;
     this.useBaucis = props.useBaucis;
+    this.useMocha = props.useMocha;
 
     //dummy vars for legacy
     this.compassBootstrap = true;
