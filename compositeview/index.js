@@ -2,6 +2,8 @@
 var generator  = require('yeoman-generator');
 var util       = require('util');
 var path       = require('path');
+var validDir = require('../helpers/validateDirectory');
+
 
 module.exports = Generator;
 
@@ -31,7 +33,8 @@ function Generator() {
 util.inherits(Generator, generator.NamedBase);
 
 Generator.prototype.createCompositeViewFiles = function createCompositeViewFiles() {
-
   var ext = 'js';
-  this.template('compositeview.' + ext, path.join('app/scripts/views/composite', this.name + '.' + ext));
+  var baseDir = validDir.getValidatedFolder( 'app/' );
+
+  this.template('compositeview.' + ext, path.join(baseDir + 'scripts/views/composite', this.name + '.' + ext));
 };

@@ -2,6 +2,8 @@
 var generator  = require('yeoman-generator');
 var util       = require('util');
 var path       = require('path');
+var validDir = require('../helpers/validateDirectory');
+
 
 module.exports = Generator;
 
@@ -19,5 +21,7 @@ util.inherits(Generator, generator.NamedBase);
 
 Generator.prototype.createRegionFiles = function createRegionFiles() {
   var ext = 'js';
-  this.template('region.' + ext, path.join('app/scripts/regions', this.name + '.' + ext));
+  var baseDir = validDir.getValidatedFolder( 'app/' );
+
+  this.template('region.' + ext, path.join(baseDir + 'scripts/regions', this.name + '.' + ext));
 };

@@ -5,7 +5,7 @@
 
     root.require.config({
 
-        baseUrl: "/scripts",
+        <% if(isFullApp){ %>baseUrl: "/scripts",<%}%>
 
         /* starting point for application */
         deps: ['backbone.marionette', 'bootstrap', 'marionette.handlebars', 'main'],

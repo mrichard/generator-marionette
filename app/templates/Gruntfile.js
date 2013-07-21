@@ -17,7 +17,7 @@ module.exports = function (grunt) {
 
     // configurable paths
     var yeomanConfig = {
-        app: 'app',
+        app: <% if(isFullApp){ %>'app'<%}else{%>''<%}%>,
         dist: 'dist'
     };
 
@@ -26,32 +26,40 @@ module.exports = function (grunt) {
 
         // watch list
         watch: {
+            <% if(isFullApp){ %>
             compass: {
                 files: ['<%%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
                 tasks: ['compass']
             },
+            %}%>
             livereload: {
                 files: [
+                    <% if(isFullApp){ %>
                     '<%%= yeoman.app %>/*.html',
                     '{.tmp,<%%= yeoman.app %>}/styles/{,**/}*.css',
                     '{.tmp,<%%= yeoman.app %>}/scripts/{,**/}*.js',
                     '{.tmp,<%%= yeoman.app %>}/templates/{,**/}*.hbs',
-                    '<%%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}'<% if(useMocha){ %>,
-                    'test/spec/{,**/}*.js'<%}%>
+                    '<%%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}'
+                    <%}else{%>
+                    'scripts/{,**/}*.js',
+                    'templates/{,**/}*.hbs',
+                    <%}%>
+                    'test/spec/{,**/}*.js'
                 ],
-                <% if(useMocha){ %>tasks: ['exec'],<%}%>
+                tasks: ['exec'],
                 options: {
                     livereload: true
                 }
-            },
+            }
+            /* not used at the moment
             handlebars: {
                 files: [
-                    '<%%= yeoman.app %>/scripts/templates/*.hbs'
+                    '<%%= yeoman.app %>/templates/*.hbs'
                 ],
                 tasks: ['handlebars']
-            }
+            }*/
         },
-        <% if(useMocha){ %>
+        
         // testing server
         connect: {
             testserver: {
@@ -62,14 +70,15 @@ module.exports = function (grunt) {
             }
         },
 
-        // testing command
+        // mocha command
         exec: {
             mocha: {
                 command: 'mocha-phantomjs http://localhost:<%%= connect.testserver.options.port %>/test',
                 stdout: true
             }
         },
-        <%}%>
+
+        <% if(isFullApp){ %>
         // express app
         express: {
             options: {
@@ -92,11 +101,12 @@ module.exports = function (grunt) {
                 }
             }
         },
+        <%}%>
 
         // open app and test page
         open: {
             server: {
-                path: 'http://localhost:<%%= express.options.port %>'
+                path: <% if(isFullApp){ %>'http://localhost:<%%= express.options.port %>'<%} else {%>'http://localhost:<%%= connect.testserver.options.port %>'<%}%>
             }
         },
 
@@ -270,10 +280,10 @@ module.exports = function (grunt) {
 
         grunt.task.run([
             'clean:server',
-            'compass:server',
+            <% if(isFullApp){ %>'compass:server',<%}%>
             'connect:testserver',
-            'express:dev',
-            <% if(useMocha){ %>'exec',<%}%>
+            <% if(isFullApp){ %>'express:dev',<%}%>
+            'exec',
             'open',
             'watch'
         ]);

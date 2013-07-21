@@ -2,6 +2,7 @@
 var generator  = require('yeoman-generator');
 var util       = require('util');
 var path       = require('path');
+var validDir = require('../helpers/validateDirectory');
 
 module.exports = Generator;
 
@@ -25,5 +26,7 @@ util.inherits(Generator, generator.NamedBase);
 
 Generator.prototype.createViewFiles = function createViewFiles() {
   var ext = 'js';
-  this.template('collection.' + ext, path.join('app/scripts/collections', this.name + '.' + ext));
+  var baseDir = validDir.getValidatedFolder( 'app/' );
+
+  this.template('collection.' + ext, path.join(baseDir + 'scripts/collections', this.name + '.' + ext));
 };
