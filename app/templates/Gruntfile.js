@@ -31,7 +31,7 @@ module.exports = function (grunt) {
                 files: ['<%%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
                 tasks: ['compass']
             },
-            %}%>
+            <%}%>
             livereload: {
                 files: [
                     <% if(isFullApp){ %>
@@ -39,7 +39,7 @@ module.exports = function (grunt) {
                     '{.tmp,<%%= yeoman.app %>}/styles/{,**/}*.css',
                     '{.tmp,<%%= yeoman.app %>}/scripts/{,**/}*.js',
                     '{.tmp,<%%= yeoman.app %>}/templates/{,**/}*.hbs',
-                    '<%%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}'
+                    '<%%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
                     <%}else{%>
                     'scripts/{,**/}*.js',
                     'templates/{,**/}*.hbs',
@@ -128,6 +128,7 @@ module.exports = function (grunt) {
             ]
         },
 
+        <% if(isFullApp){ %>
         // compass
         compass: {
             options: {
@@ -146,6 +147,7 @@ module.exports = function (grunt) {
                 }
             }
         },
+        <%}%>
 
         // require
         requirejs: {
