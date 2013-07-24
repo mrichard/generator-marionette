@@ -18,7 +18,7 @@ function Generator() {
   
 
   if (this.model && this.options['create-all']) {
-    this.hookFor('marionette', { as: 'model', args: [this.model], options: this.options })
+    this.hookFor('marionette', { as: 'model', args: [this.model], options: this.options });
   }
 }
 

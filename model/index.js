@@ -13,6 +13,8 @@ function Generator() {
   this.sourceRoot(path.join(__dirname, dirPath));
 
   this.argument('inherit', { type: String, required: false });
+
+  this.hookFor('mocha-amd', { as: 'model', args: [this.name] });
   
 }
 
