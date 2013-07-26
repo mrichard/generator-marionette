@@ -21,6 +21,13 @@ function Generator() {
   if ( this.itemview && this.options['create-all'] ) {
     this.hookFor('marionette', { as: 'itemview', args: [this.itemview], options: { options: this.options } });
   }
+
+  // invoke  mocha
+  this.hookFor('mocha-amd', { 
+    as: 'unitTest', 
+    args: [this.name, 'collectionview', 'views/collection']
+  });
+  
 }
 
 util.inherits(Generator, generator.NamedBase);

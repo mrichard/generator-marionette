@@ -280,6 +280,8 @@ module.exports = function (grunt) {
             return grunt.task.run(['build', 'open', 'connect:dist:keepalive']);
         }
 
+        grunt.option('force', true);
+
         grunt.task.run([
             'clean:server',
             <% if(isFullApp){ %>'compass:server',<%}%>
