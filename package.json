@@ -1,5 +1,6 @@
 {
   "name" : "generator-marionette",
+  "description": "Yeoman generator for Express, Marionette and Backbone with AMD",
   "version" : "0.1.0",
   "keywords": [
     "yeoman-generator",
