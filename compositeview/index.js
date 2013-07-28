@@ -28,6 +28,12 @@ function Generator() {
     this.hookFor('marionette', { as: 'itemview', args: [this.itemview], options: { options: this.options } });
     this.hookFor('marionette', { as: 'tmpl', args: [this.tmplOrig, this.compTmplLocation], options: this.options });
   }
+
+  // invoke  mocha
+  this.hookFor('mocha-amd', { 
+    as: 'unitTest', 
+    args: [this.name, 'compositeview', 'views/composite']
+  });
 }
 
 util.inherits(Generator, generator.NamedBase);

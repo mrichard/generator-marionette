@@ -13,6 +13,12 @@ function Generator() {
   this.sourceRoot(path.join(__dirname, dirPath));
 
   this.argument('inherit', { type: String, required: false });
+
+  // invoke  mocha
+  this.hookFor('mocha-amd', { 
+    as: 'unitTest', 
+    args: [this.name, 'controller', 'controllers']
+  });
 }
 
 util.inherits(Generator, generator.NamedBase);

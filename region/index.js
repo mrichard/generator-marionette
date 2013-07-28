@@ -14,7 +14,11 @@ function Generator() {
 
   this.argument('inherit', { type: String, required: false });
 
-  
+  // invoke  mocha
+  this.hookFor('mocha-amd', { 
+    as: 'unitTest', 
+    args: [this.name, 'region', 'regions']
+  });
 }
 
 util.inherits(Generator, generator.NamedBase);

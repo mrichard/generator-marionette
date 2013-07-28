@@ -12,6 +12,11 @@ function Generator() {
   var dirPath = '../templates/javascript';
   this.sourceRoot(path.join(__dirname, dirPath));
 
+  // invoke  mocha
+  this.hookFor('mocha-amd', { 
+    as: 'unitTest', 
+    args: [this.name, 'router', 'routers']
+  });
   
 }
 

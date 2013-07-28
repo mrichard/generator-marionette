@@ -11,6 +11,12 @@ function Generator() {
   generator.NamedBase.apply(this, arguments);
   var dirPath = '../templates/javascript';
   this.sourceRoot(path.join(__dirname, dirPath));
+
+  // invoke  mocha
+  this.hookFor('mocha-amd', { 
+    as: 'unitTest', 
+    args: [this.name, 'view', 'views']
+  });
   
 }
 

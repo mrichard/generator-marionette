@@ -24,6 +24,12 @@ function Generator() {
   if ( this.tmplOrig && this.options['create-all'] ) {
     this.hookFor('marionette', { as: 'tmpl', args: [this.tmplOrig, this.tmplLocation], options: this.options });
   }
+
+  // invoke  mocha
+  this.hookFor('mocha-amd', { 
+    as: 'unitTest', 
+    args: [this.name, 'itemview', 'views/item']
+  });
 }
 
 util.inherits(Generator, generator.NamedBase);
