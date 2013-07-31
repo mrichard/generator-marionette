@@ -1,3 +1,3 @@
 {
-    "directory": "<% if(isFullApp){ %>app/<%}%>bower_components"
+    "directory": "<% if(isFullApp){ %>app/<%}%><%= bowerDirectory %>"
 }
