@@ -62,6 +62,12 @@ Generator.prototype.askFor = function askFor() {
     type: 'confirm',
     name: 'useBaucis',
     message: 'Would you like to include Baucis for REST?'
+  },
+  {
+    type: 'string',
+    name: 'bowerDirectory',
+    message: 'Where do you want the Bower components installed?',
+    default: 'bower_components'
   }];
 
   this.prompt(prompts, function (props) {
@@ -71,6 +77,7 @@ Generator.prototype.askFor = function askFor() {
     this.useMongoose = props.useMongoose;
     this.useSocketIO = props.useSocketIO;
     this.useBaucis = props.useBaucis;
+    this.bowerDirectory = props.bowerDirectory;
 
     //dummy vars for legacy
     this.compassBootstrap = true;
@@ -82,7 +89,7 @@ Generator.prototype.askFor = function askFor() {
 
 Generator.prototype.git = function git() {
   if( this.isFullApp ) {
-    this.copy('gitignore', '.gitignore');
+    this.template('gitignore', '.gitignore');
     this.copy('gitattributes', '.gitattributes');
   }
 };
@@ -164,6 +171,6 @@ Generator.prototype.setupEnv = function setupEnv() {
     this.template('app/robots.txt');
     this.copy('app/htaccess', 'app/.htaccess');
   }
-    
+
 };
 
