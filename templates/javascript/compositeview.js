@@ -1,5 +1,3 @@
-'use strict';
-
 define([
 	'backbone'<% if (!_.isEmpty(itemview)) { %>,
 	'views/item/<%=itemview%>'<% } %><% if (!_.isEmpty(compTmpl)) { %>,
@@ -7,6 +5,7 @@ define([
 	'views/composite/<%= inherit %>'<% } %>
 ],
 function( <%= _.classify('backbone')%><% if (!_.isEmpty(itemview)) { %>, <%=_.classify(itemview)%><% } %><% if (!_.isEmpty(compTmpl)) { %>, <%= _.classify(compTmpl)%> <% } %><% if (!_.isEmpty(inherit)) { %>, <%=_.classify(inherit)%><% } %> ) {
+    'use strict';
 
 	/* Return a CompositeView class definition */
 	return <% if (!_.isEmpty(inherit)) { %><%=_.classify(inherit)%>.extend <% } else { %>Backbone.Marionette.CompositeView.extend<% } %>({

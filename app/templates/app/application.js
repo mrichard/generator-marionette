@@ -1,5 +1,3 @@
-'use strict';
-
 define([
 	'backbone',
 	'communicator',
@@ -7,6 +5,8 @@ define([
 ],
 
 function( Backbone, Communicator, Welcome_tmpl ) {
+    'use strict';
+
 	var welcomeTmpl = Welcome_tmpl;
 
 	var App = new Backbone.Marionette.Application();

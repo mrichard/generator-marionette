@@ -1,10 +1,9 @@
-'use strict';
-
 define([
 	'backbone',
 	'communicator'
 ],
 function( Backbone, Communicator ) {
+    'use strict';
 
 	var RegionManager = Backbone.Marionette.Controller.extend({
 

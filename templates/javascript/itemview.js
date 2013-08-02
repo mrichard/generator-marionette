@@ -1,11 +1,10 @@
-'use strict';
-
 define([
 	'backbone'<% if (!_.isEmpty(tmpl)) { %>,
 	'hbs!tmpl/<% if (!_.isEmpty(tmplLocation)) { %><%= tmplLocation%>/<% } %><%= tmpl %>'<% } %><% if (!_.isEmpty(inherit)) { %>,
 	'views/item/<%= inherit %>'<% } %>
 ],
 function( <%= _.classify('backbone') %><% if (!_.isEmpty(tmpl)) { %>, <%= _.classify(tmpl) %> <% } %><% if (!_.isEmpty(inherit)) { %>, <%=_.classify(inherit)%><% } %> ) {
+    'use strict';
 
 	/* Return a ItemView class definition */
 	return <% if (!_.isEmpty(inherit)) { %><%=_.classify(inherit)%>.extend <% } else { %>Backbone.Marionette.ItemView.extend<% } %>({
