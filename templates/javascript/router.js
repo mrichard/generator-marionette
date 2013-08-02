@@ -1,16 +1,12 @@
-(function() {
-	'use strict';
+'use strict';
 
-	var root = this;
+define([
+	'backbone'
+	],
+	function(<%= _.classify('backbone') %>){
 
-	root.define([
-		'backbone'
-		], 
-		function(<%= _.classify('backbone') %>){
-
-			return Backbone.Router.extend({
-				/* Backbone routes hash */
-				routes: {}
-	  		});
-	});
-}).call( this );
+		return Backbone.Router.extend({
+			/* Backbone routes hash */
+			routes: {}
+  		});
+});

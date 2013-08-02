@@ -1,20 +1,16 @@
-(function() {
-	'use strict';
+'use strict';
 
-	var root = this;
+define([
+	'backbone'<% if (!_.isEmpty(inherit)) { %>,
+	'controllers/<%= inherit %>'<% } %>
+],
+function( <%= _.classify('backbone') %><% if (!_.isEmpty(inherit)) { %>, <%=_.classify(inherit)%><% } %> ) {
 
-	root.define([
-		'backbone'<% if (!_.isEmpty(inherit)) { %>,
-		'controllers/<%= inherit %>'<% } %>
-	],
-	function( <%= _.classify('backbone') %><% if (!_.isEmpty(inherit)) { %>, <%=_.classify(inherit)%><% } %> ) {
+	return <% if (!_.isEmpty(inherit)) { %><%=_.classify(inherit)%>.extend <% } else { %>Backbone.Marionette.Controller.extend<% } %>({
 
-		return <% if (!_.isEmpty(inherit)) { %><%=_.classify(inherit)%>.extend <% } else { %>Backbone.Marionette.Controller.extend<% } %>({
-		
-			initialize: function( options ) {
-				console.log("initialize a <%= _.classify(name) %> Controller");
-			}
-		});
-
+		initialize: function( options ) {
+			console.log("initialize a <%= _.classify(name) %> Controller");
+		}
 	});
-}).call( this );
+
+});
