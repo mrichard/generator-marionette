@@ -1,14 +1,10 @@
-(function() {
-    'use strict';
+'use strict';
 
-    var root = this;
-
-    root.require([
-		'backbone',
-		'application',
-		'regionManager'
-	],
-	function ( Backbone, App ) {
-		App.start();
-	});
-}).call( this );
+require([
+	'backbone',
+	'application',
+	'regionManager'
+],
+function ( Backbone, App ) {
+	App.start();
+});
