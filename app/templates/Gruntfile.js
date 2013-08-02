@@ -59,7 +59,7 @@ module.exports = function (grunt) {
                 tasks: ['handlebars']
             }*/
         },
-        
+
         // testing server
         connect: {
             testserver: {
@@ -137,7 +137,7 @@ module.exports = function (grunt) {
                 imagesDir: '<%%= yeoman.app %>/images',
                 javascriptsDir: '<%%= yeoman.app %>/scripts',
                 fontsDir: '<%%= yeoman.app %>/styles/fonts',
-                importPath: 'app/bower_components',
+                importPath: 'app/<%= bowerDirectory %>',
                 relativeAssets: true
             },
             dist: {},
