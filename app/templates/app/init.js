@@ -1,5 +1,3 @@
-'use strict';
-
 require.config({
 
     <% if(isFullApp){ %>baseUrl: "/scripts",<%}%>
