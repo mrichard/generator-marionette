@@ -13,10 +13,8 @@ function( <%= _.classify('backbone') %><% if (!_.isEmpty(tmpl)) { %>, <%= _.clas
 			console.log("initialize a <%= _.classify(name) %> ItemView");
 		},
 		<% if (!_.isEmpty(tmpl)) { %>
-    	template: {
-			type: 'handlebars',
-			template: <%= _.classify(tmpl) %>
-		},<% } %>
+    	template: <%= _.classify(tmpl) %>,
+        <% } %>
 
     	/* ui selector cache */
     	ui: {},
