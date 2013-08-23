@@ -19,7 +19,6 @@ Stack
     * Handlebars: 
         - http://handlebarsjs.com/
         - https://github.com/SlexAxton/require-handlebars-plugin
-        - https://github.com/asciidisco/Backbone.Marionette.Handlebars
     * SASS-Bootstrap:
         - http://twitter.github.io/bootstrap
         - https://github.com/thomas-mcdonald/bootstrap-sass

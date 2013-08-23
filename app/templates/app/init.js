@@ -3,7 +3,7 @@ require.config({
     <% if(isFullApp){ %>baseUrl: "/scripts",<%}%>
 
     /* starting point for application */
-    deps: ['backbone.marionette', 'bootstrap', 'marionette.handlebars', 'main'],
+    deps: ['backbone.marionette', 'bootstrap', 'main'],
 
 
     shim: {
@@ -47,10 +47,7 @@ require.config({
         /* require handlebars plugin - Alex Sexton */
         i18nprecompile: '../<%= bowerDirectory %>/require-handlebars-plugin/hbs/i18nprecompile',
         json2: '../<%= bowerDirectory %>/require-handlebars-plugin/hbs/json2',
-        hbs: '../<%= bowerDirectory %>/require-handlebars-plugin/hbs',
-
-        /* marionette and handlebars plugin */
-        'marionette.handlebars': '../<%= bowerDirectory %>/backbone.marionette.handlebars/backbone.marionette.handlebars'
+        hbs: '../<%= bowerDirectory %>/require-handlebars-plugin/hbs'
     },
 
     hbs: {
