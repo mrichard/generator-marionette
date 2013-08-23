@@ -16,10 +16,7 @@ function( <%= _.classify('backbone')%><% if (!_.isEmpty(itemview)) { %>, <%=_.cl
 		<% if (!_.isEmpty(itemview)) { %>
     	itemView: <%= _.classify(itemview) %>,<% } %>
     	<% if (!_.isEmpty(compTmpl)) { %>
-    	template: {
-			type: 'handlebars',
-			template: <%= _.classify(compTmpl) %>
-		},
+    	template: <%= _.classify(compTmpl) %>,
     	<% } %>
 
     	/* ui selector cache */
