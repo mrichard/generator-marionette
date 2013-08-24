@@ -17,7 +17,7 @@ module.exports = function (grunt) {
 
     // configurable paths
     var yeomanConfig = {
-        app: 'app',
+        app: <% if(isFullApp){ %>'app'<%}else{%>''<%}%>,
         dist: 'dist'
     };
 
@@ -26,30 +26,38 @@ module.exports = function (grunt) {
 
         // watch list
         watch: {
+            <% if(isFullApp){ %>
             compass: {
                 files: ['<%%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
                 tasks: ['compass']
             },
+            <%}%>
             livereload: {
                 files: [
+                    <% if(isFullApp){ %>
                     '<%%= yeoman.app %>/*.html',
                     '{.tmp,<%%= yeoman.app %>}/styles/{,**/}*.css',
                     '{.tmp,<%%= yeoman.app %>}/scripts/{,**/}*.js',
                     '{.tmp,<%%= yeoman.app %>}/templates/{,**/}*.hbs',
                     '<%%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
+                    <%}else{%>
+                    'scripts/{,**/}*.js',
+                    'templates/{,**/}*.hbs',
+                    <%}%>
                     'test/spec/{,**/}*.js'
                 ],
                 tasks: ['exec'],
                 options: {
                     livereload: true
                 }
-            },
+            }
+            /* not used at the moment
             handlebars: {
                 files: [
-                    '<%%= yeoman.app %>/scripts/templates/*.hbs'
+                    '<%%= yeoman.app %>/templates/*.hbs'
                 ],
                 tasks: ['handlebars']
-            }
+            }*/
         },
 
         // testing server
@@ -62,14 +70,15 @@ module.exports = function (grunt) {
             }
         },
 
-        // testing command
+        // mocha command
         exec: {
             mocha: {
-                command: 'mocha-phantomjs http://localhost:<%= connect.testserver.options.port %>/test',
+                command: 'mocha-phantomjs http://localhost:<%%= connect.testserver.options.port %>/test',
                 stdout: true
             }
         },
 
+        <% if(isFullApp){ %>
         // express app
         express: {
             options: {
@@ -92,15 +101,12 @@ module.exports = function (grunt) {
                 }
             }
         },
+        <%}%>
 
         // open app and test page
         open: {
             server: {
-                path: 'http://localhost:<%%= express.options.port %>'
-            },
-
-            testPage: {
-                path: 'http://localhost:<%= connect.testserver.options.port %>/test'
+                path: <% if(isFullApp){ %>'http://localhost:<%%= express.options.port %>'<%} else {%>'http://localhost:<%%= connect.testserver.options.port %>'<%}%>
             }
         },
 
@@ -122,6 +128,7 @@ module.exports = function (grunt) {
             ]
         },
 
+        <% if(isFullApp){ %>
         // compass
         compass: {
             options: {
@@ -130,7 +137,7 @@ module.exports = function (grunt) {
                 imagesDir: '<%%= yeoman.app %>/images',
                 javascriptsDir: '<%%= yeoman.app %>/scripts',
                 fontsDir: '<%%= yeoman.app %>/styles/fonts',
-                importPath: 'app/bower_components',
+                importPath: 'app/<%= bowerDirectory %>',
                 relativeAssets: true
             },
             dist: {},
@@ -140,6 +147,7 @@ module.exports = function (grunt) {
                 }
             }
         },
+        <%}%>
 
         // require
         requirejs: {
@@ -161,6 +169,15 @@ module.exports = function (grunt) {
                     useStrict: true,
                     wrap: true,
                     //uglify2: {} // https://github.com/mishoo/UglifyJS2
+                    pragmasOnSave: {
+                        //removes Handlebars.Parser code (used to compile template strings) set
+                        //it to `false` if you need to parse template strings even after build
+                        excludeHbsParser : true,
+                        // kills the entire plugin set once it's built.
+                        excludeHbs: true,
+                        // removes i18n precompiler, handlebars and json2
+                        excludeAfterBuild: true
+                    }
                 }
             }
         },
@@ -234,7 +251,8 @@ module.exports = function (grunt) {
                     src: [
                         '*.{ico,txt}',
                         '.htaccess',
-                        'images/{,*/}*.{webp,gif}'
+                        'images/{,*/}*.{webp,gif}',
+                        '<%= bowerDirectory %>/requirejs/require.js'
                     ]
                 }]
             }
@@ -254,7 +272,7 @@ module.exports = function (grunt) {
                     amd: true
                 },
                 files: {
-                    '.tmp/scripts/templates.js': ['<%= yeoman.app %>/scripts/templates/*.hbs']
+                    '.tmp/scripts/templates.js': ['<%= yeoman.app %>templates/**/*.hbs']
                 }
             }
         }
@@ -272,23 +290,27 @@ module.exports = function (grunt) {
             return grunt.task.run(['build', 'open', 'connect:dist:keepalive']);
         }
 
+        grunt.option('force', true);
+
         grunt.task.run([
             'clean:server',
-            'compass:server',
+            <% if(isFullApp){ %>'compass:server',<%}%>
             'connect:testserver',
-            'express:dev',
+            <% if(isFullApp){ %>'express:dev',<%}%>
+            'exec',
             'open',
             'watch'
         ]);
     });
 
+    // todo fix these
     grunt.registerTask('test', [
         'clean:server',
         'createDefaultTemplate',
         'handlebars',
         'compass',
-        'connect:test',
-        'mocha'
+        'connect:testserver',
+        'exec:mocha'
     ]);
 
     grunt.registerTask('build', [

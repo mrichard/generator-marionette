@@ -2,6 +2,7 @@
 var generator  = require('yeoman-generator');
 var util       = require('util');
 var path       = require('path');
+var validDir = require('../helpers/validateDirectory');
 
 module.exports = Generator;
 
@@ -23,12 +24,19 @@ function Generator() {
   if ( this.tmplOrig && this.options['create-all'] ) {
     this.hookFor('marionette', { as: 'tmpl', args: [this.tmplOrig, this.tmplLocation], options: this.options });
   }
+
+  // invoke  mocha
+  this.hookFor('mocha-amd', { 
+    as: 'unitTest', 
+    args: [this.name, 'itemview', 'views/item']
+  });
 }
 
 util.inherits(Generator, generator.NamedBase);
 
 Generator.prototype.createItemViewFiles = function createItemViewFiles() {
-  // TODO: Add template
   var ext = 'js';
-  this.template('itemview.' + ext, path.join('app/scripts/views/item', this.name + '.' + ext));
+  var baseDir = validDir.getValidatedFolder( 'app/' );
+
+  this.template('itemview.' + ext, path.join(baseDir + 'scripts/views/item', this.name + '.' + ext));
 };

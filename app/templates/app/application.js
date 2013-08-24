@@ -1,28 +1,24 @@
-(function() {
-	'use strict';
+define([
+	'backbone',
+	'communicator',
+	'hbs!tmpl/welcome'
+],
 
-	var root = this;
+function( Backbone, Communicator, Welcome_tmpl ) {
+    'use strict';
 
-	root.define([
-		'backbone',
-		'communicator',
-		'hbs!tmpl/welcome'
-	],
+	var welcomeTmpl = Welcome_tmpl;
 
-	function( Backbone, Communicator, Welcome_tmpl ) {
-		var welcomeTmpl = Welcome_tmpl;
+	var App = new Backbone.Marionette.Application();
 
-		var App = new Backbone.Marionette.Application();
+	/* Add application regions here */
+	App.addRegions({});
 
-		/* Add application regions here */
-		App.addRegions({});
-
-		/* Add initializers here */
-		App.addInitializer( function () {
-			document.body.innerHTML = welcomeTmpl({ success: "CONGRATS!" });
-			Communicator.mediator.trigger("APP:START");
-		});
-
-		return App;
+	/* Add initializers here */
+	App.addInitializer( function () {
+		document.body.innerHTML = welcomeTmpl({ success: "CONGRATS!" });
+		Communicator.mediator.trigger("APP:START");
 	});
-}).call( this );
+
+	return App;
+});

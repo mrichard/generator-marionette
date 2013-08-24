@@ -2,6 +2,8 @@
 var generator  = require('yeoman-generator');
 var util       = require('util');
 var path       = require('path');
+var validDir = require('../helpers/validateDirectory');
+
 
 module.exports = Generator;
 
@@ -10,6 +12,11 @@ function Generator() {
   var dirPath = '../templates/javascript';
   this.sourceRoot(path.join(__dirname, dirPath));
 
+  // invoke  mocha
+  this.hookFor('mocha-amd', { 
+    as: 'unitTest', 
+    args: [this.name, 'router', 'routers']
+  });
   
 }
 
@@ -17,5 +24,7 @@ util.inherits(Generator, generator.NamedBase);
 
 Generator.prototype.createRouterFiles = function createRouterFiles() {
   var ext = 'js';
-  this.template('router.' + ext, path.join('app/scripts/routers', this.name + '.' + ext));
+  var baseDir = validDir.getValidatedFolder( 'app/' );
+
+  this.template('router.' + ext, path.join(baseDir + 'scripts/routers', this.name + '.' + ext));
 };

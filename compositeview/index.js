@@ -2,6 +2,8 @@
 var generator  = require('yeoman-generator');
 var util       = require('util');
 var path       = require('path');
+var validDir = require('../helpers/validateDirectory');
+
 
 module.exports = Generator;
 
@@ -26,12 +28,19 @@ function Generator() {
     this.hookFor('marionette', { as: 'itemview', args: [this.itemview], options: { options: this.options } });
     this.hookFor('marionette', { as: 'tmpl', args: [this.tmplOrig, this.compTmplLocation], options: this.options });
   }
+
+  // invoke  mocha
+  this.hookFor('mocha-amd', { 
+    as: 'unitTest', 
+    args: [this.name, 'compositeview', 'views/composite']
+  });
 }
 
 util.inherits(Generator, generator.NamedBase);
 
 Generator.prototype.createCompositeViewFiles = function createCompositeViewFiles() {
-
   var ext = 'js';
-  this.template('compositeview.' + ext, path.join('app/scripts/views/composite', this.name + '.' + ext));
+  var baseDir = validDir.getValidatedFolder( 'app/' );
+
+  this.template('compositeview.' + ext, path.join(baseDir + 'scripts/views/composite', this.name + '.' + ext));
 };

@@ -9,7 +9,6 @@ Stack
     * Node: http://nodejs.org/
     * Express: http://expressjs.com/
     * Socket IO: http://socket.io/
-    * Faye: http://faye.jcoglan.com/
 - DB: Mongo: http://www.mongodb.org/
 - ODM: Mongoose: http://mongoosejs.com
 - Client: 
@@ -20,7 +19,6 @@ Stack
     * Handlebars: 
         - http://handlebarsjs.com/
         - https://github.com/SlexAxton/require-handlebars-plugin
-        - https://github.com/asciidisco/Backbone.Marionette.Handlebars
     * SASS-Bootstrap:
         - http://twitter.github.io/bootstrap
         - https://github.com/thomas-mcdonald/bootstrap-sass
@@ -28,6 +26,11 @@ Stack
     * Yeoman: http://yeoman.io/
     * Bower:
     * Grunt
+- Testing:
+    * phantomJS http://phantomjs.org/
+    * Mocha http://visionmedia.github.io/mocha/
+    * Chai http://chaijs.com/
+    * Sinon http://sinonjs.org/
 
 
 Directory structure
@@ -56,7 +59,7 @@ Directory structure
 
 - server/                             --> node server files
 - test/                               --> unittesting
-
+    * /spec                           --> individual spec files
 
 
 Install
@@ -71,13 +74,28 @@ Or visit http://www.mongodb.org/
 
 Visit nodejs.org to install node and NPM
 
+
+Install phantomJS with:
+
+    $ brew install phantomjs
+
+Or visit http://phantomjs.org/
+
+
 To install Yeoman, Bower and Grunt run: 
 
     $ npm install -g yo grunt-cli bower
 
+
+Install mocha-phantomjs:
+
+    $ npm install -g mocha-phantomjs
+
+
 Install mocha generator: 
 
-    $ npm install -g generator-mocha
+    $ npm install (-g) generator-mocha-amd
+
 
 Install marionette generator
 
@@ -87,15 +105,33 @@ Install marionette generator
 
 Bootstrap project
 -----------------
-To bootstrap a new project simply run
+To bootstrap a new project simply run:
 
     $ yo marionette
 
-You have options to include a few Node packages. The client side libraries are set for now. 
+You have option to include the full express server OR just the marionette generators with a minimal server to develop and run test. No SASS/CSS in the latter. 
 
-To start the app run
 
-    $ grunt expressserver
+To start the app run:
+
+    $ grunt
+
+
+Unit testing generation
+-----------------
+The biggest change in this release is the automatic unit test generation as part of the marionette-generator. The Marionette generator calls upon the mocha-amd generator. The default grunt task will automatically run all unit test files via phantom JS. You can also use the browser at localhost:1234/test. Test file generation looks something like the following:
+
+- yo marionette:collection sizes --model size --create-all     // run collection generator
+- create app/scripts/collections/sizes.js                       
+- invoke   marionette:model
+- create     app/scripts/models/size.js
+- invoke       mocha-amd:unitTest
+- create         test/spec/models/size.js               // unit test for size model
+- force         test/spec/testSuite.js
+- invoke   mocha-amd:unitTest
+- create     test/spec/collections/sizes.js             // unit test for sizes collection
+- force     test/spec/testSuite.js                  // testSuite file which lists all test to run
+
 
 
 Recommends
@@ -263,14 +299,4 @@ Create a handle bars tmpl
 
 
 
-Testing
--------
-Default test framework for this generator is mocha
 
-
-
-TO DO's
-------- 
-* Build a module generator
-* Auto generate failing unit tests
-* Create generator unit tests

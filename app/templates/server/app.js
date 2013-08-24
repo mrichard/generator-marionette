@@ -6,7 +6,6 @@ var path = require('path');
 var async = require('async');
 var hbs = require('express-hbs');
 <% if(useBaucis){ %>var baucis = require('baucis');<% } %>
-<% if(useFaye){ %>var faye = require('faye');<% } %>
 <% if(useSocketIO){ %>var socketIO = require('socket.io');<% } %>
 <% if(useMongoose){ %>var mongoose = require('mongoose');
 
