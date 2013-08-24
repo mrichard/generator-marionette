@@ -309,8 +309,8 @@ module.exports = function (grunt) {
         'createDefaultTemplate',
         'handlebars',
         'compass',
-        'connect:test',
-        'mocha'
+        'connect:testserver',
+        'exec:mocha'
     ]);
 
     grunt.registerTask('build', [
