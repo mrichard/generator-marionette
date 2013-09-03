@@ -18,7 +18,7 @@ function Generator() {
 
   /* set the template name which is auto created */
   this.tmplOrig = this.name;
-  this.tmpl = this.name + '_tmpl';
+  this.tmpl = this.name;
   this.tmplLocation = 'item';
 
   if ( this.tmplOrig && this.options['create-all'] ) {
