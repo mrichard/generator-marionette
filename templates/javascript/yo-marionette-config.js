@@ -17,12 +17,21 @@
 
 // Modular config
 ({
+	isFullApp: false,
+	useMongoose: false,
+	useBaucis: false,
+	bowerDirectory: 'bower_components',
+
+	// Legacy
+	compassBootstrap: true,
+	includeRequireJS: true,
+
+	/**
+	 * Additions
+	 */
 	isModularApp: false,
 	application: {
 		dirName: 'app'
-	},
-	bowerComponents: {
-		dirName: 'bower_components'
 	},
 	module: {
 		dirName: 'modules',
