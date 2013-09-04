@@ -5,18 +5,7 @@ require.config({
     /* starting point for application */
     deps: ['backbone.marionette', 'bootstrap', 'main'],
 
-
     shim: {
-        backbone: {
-            deps: [
-                'underscore',
-                'jquery'
-            ],
-            exports: 'Backbone'
-        },
-        'backbone.marionette': {
-        	deps: ['backbone']
-		},
         bootstrap: {
             deps: ['jquery'],
             exports: 'jquery'
