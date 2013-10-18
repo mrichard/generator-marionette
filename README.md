@@ -24,8 +24,8 @@ Stack
         - https://github.com/thomas-mcdonald/bootstrap-sass
 - Tooling: 
     * Yeoman: http://yeoman.io/
-    * Bower:
-    * Grunt
+    * Bower: http://bower.io/
+    * Grunt: http://gruntjs.com/
 - Testing:
     * phantomJS http://phantomjs.org/
     * Mocha http://visionmedia.github.io/mocha/
