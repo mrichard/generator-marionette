@@ -12,7 +12,6 @@ function Generator() {
   var dirPath = '../templates/javascript';
   this.sourceRoot(path.join(__dirname, dirPath));
 
-  this.argument( 'model', { type: String, required: false });
   this.argument('inherit', { type: String, required: false });
 
   // invoke  mocha
