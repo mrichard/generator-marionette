@@ -136,7 +136,7 @@ The biggest change in this release is the automatic unit test generation as part
 
 Recommends
 -----------------
-The generator is most useful using the --creat-all flag. In the example:
+The generator is most useful using the --create-all flag. In the example:
 
     $ yo marionette:compositeview peopleview --itemview personview --create-all
 
