@@ -9,7 +9,7 @@ function( <%=_.classify('backbone')%><% if (!_.isEmpty(model)) { %>, <%=_.classi
 	/* Return a collection class definition */
 	return <% if (!_.isEmpty(inherit)) { %><%=_.classify(inherit)%>.extend <% } else { %>Backbone.Collection.extend<% } %>({
 		initialize: function() {
-			console.log("initialize a <%= _.classify(name) %> collection");
+			console.log('initialize a <%= _.classify(name) %> collection');
 		}<% if (!_.isEmpty(model)) { %>,
 
 		model: <%= _.classify(model) %>

@@ -10,7 +10,7 @@ function( <%= _.classify('backbone') %><% if (!_.isEmpty(tmpl)) { %>, <%= _.clas
 	return <% if (!_.isEmpty(inherit)) { %><%=_.classify(inherit)%>.extend <% } else { %>Backbone.Marionette.Layout.extend<% } %>({
 
 		initialize: function() {
-			console.log("initialize a <%= _.classify(name) %> Layout");
+			console.log('initialize a <%= _.classify(name) %> Layout');
 		},
 		<% if (!_.isEmpty(tmpl)) { %>
     	template: <%= _.classify(tmpl) %>,
