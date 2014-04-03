@@ -25,7 +25,7 @@ util.inherits(Generator, generator.NamedBase);
 
 Generator.prototype.createRegionFiles = function createRegionFiles() {
   var ext = 'js';
-  var baseDir = validDir.getValidatedFolder( 'app/' );
+  var baseDir = validDir.getValidatedFolder( 'public/' );
 
   this.template('region.' + ext, path.join(baseDir + 'scripts/regions', this.name + '.' + ext));
 };

@@ -40,7 +40,7 @@ util.inherits(Generator, generator.NamedBase);
 
 Generator.prototype.createCompositeViewFiles = function createCompositeViewFiles() {
   var ext = 'js';
-  var baseDir = validDir.getValidatedFolder( 'app/' );
+  var baseDir = validDir.getValidatedFolder( 'public/' );
 
   this.template('compositeview.' + ext, path.join(baseDir + 'scripts/views/composite', this.name + '.' + ext));
 };

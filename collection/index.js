@@ -31,7 +31,7 @@ util.inherits(Generator, generator.NamedBase);
 
 Generator.prototype.createViewFiles = function createViewFiles() {
   var ext = 'js';
-  var baseDir = validDir.getValidatedFolder( 'app/' );
+  var baseDir = validDir.getValidatedFolder( 'public/' );
 
   this.template('collection.' + ext, path.join(baseDir + 'scripts/collections', this.name + '.' + ext));
 };

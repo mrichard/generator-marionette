@@ -1,21 +1,21 @@
 {
   "name": "<%= _.slugify(appname) %>",
   "version": "0.0.1",
-  <% if(isFullApp){ %>
+  <% if(needsBackend){ %>
   "dependencies": {
-    "express": "~3.2.4",
-    "request": "~2.21.0",
-    "async": "~0.2.8",<% if(useMongoose){ %>
-    "mongodb": "~1.3.6",
-    "mongoose": "~3.6.11",<% } %><% if(useSocketIO){ %>
-    "socket.io": "~0.9.14",<% } %><% if(useBaucis){ %>
-    "baucis": "~0.4.6",<% } %>
-    "express-hbs": "~0.2.0",
-    "underscore": "~1.4.4"
+    "express": "~3.5.1",
+    "request": "~2.34.0",
+    "async": "~0.6.2",
+    "mongodb": "~1.4.0",
+    "mongoose": "~3.8.8",
+    "socket.io": "~0.9.16",
+    "baucis": "~0.16.16",
+    "express-hbs": "~0.7.9",
+    "underscore": "~1.6.0"
   },
   <% } %>
   "devDependencies": {
-    "grunt": "~0.4.1",
+    "grunt": "~0.4.4",
     "grunt-contrib-copy": "~0.4.0",
     "grunt-contrib-concat": "~0.2.0",
     "grunt-contrib-coffee": "~0.6.6",

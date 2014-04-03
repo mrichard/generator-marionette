@@ -23,7 +23,5 @@ function Generator() {
 util.inherits(Generator, generator.NamedBase);
 
 Generator.prototype.createTmplFiles = function createTmplFiles() {
-  var baseDir = validDir.getValidatedFolder( 'app/' );
-
-  this.template('tmpl.js', path.join(baseDir + 'templates', this.tmplLocation, this.name + '.hbs' ));
+  this.template('tmpl.js', path.join('templates', this.tmplLocation, this.name + '.hbs' ));
 };

@@ -2,21 +2,21 @@
   "name": "<%= _.slugify(appname) %>",
   "version": "0.0.0",
   "dependencies": {
-    "sass-bootstrap": "~2.3.0",
-    "jquery": "~1.9.0",
-    "requirejs": "~2.1.5",
-    "requirejs-text": "~2.0.5",
-    "backbone-amd": "~1.0.0",
-    "underscore-amd": "~1.4.4",
+    "sass-bootstrap": "~3.0.2",
+    "jquery": "~2.1.0",
+    "requirejs": "~2.1.11",
+    "requirejs-text": "~2.0.10",
+    "backbone": "~1.1.2",
+    "underscore": "~1.6.0",
     "modernizr": "~2.6.2",
-    "backbone.marionette": "~1.0.2",
-    "backbone.wreqr": "~0.2.0",
-    "backbone.babysitter": "~0.0.6",
-    "require-handlebars-plugin": "~0.4.0",
-    "mocha": "~1.12.0",
-    "chai": "~1.7.2",
-    "sinon": "~1.7.3"
+    "backbone.marionette": "~1.7.4",
+    "backbone.wreqr": "~1.1.0",
+    "backbone.babysitter": "~0.1.0",
+    "require-handlebars-plugin": "~0.8.0",
+    "mocha": "~1.18.2",
+    "chai": "~1.9.1",
+    "sinon": "~1.9.1"
   },
   "devDependencies": {},
-  "directory": "<%= bowerDirectory %>"
+  "directory": "bower_components"
 }

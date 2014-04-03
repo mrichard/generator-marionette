@@ -25,7 +25,7 @@ util.inherits(Generator, generator.NamedBase);
 
 Generator.prototype.createControllerFiles = function createControllerFiles() {
   var ext = 'js';
-  var baseDir = validDir.getValidatedFolder( 'app/' );
+  var baseDir = validDir.getValidatedFolder( 'public/' );
   
   this.template('controller.' + ext, path.join(baseDir + 'scripts/controllers', this.name + '.' + ext));
 };

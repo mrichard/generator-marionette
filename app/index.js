@@ -45,53 +45,28 @@ Generator.prototype.askFor = function askFor() {
 
   var prompts = [{
     type: 'confirm',
-    name: 'isFullApp',
-    message: 'Would you like to install the full express app or simply the marionette generators?'
+    name: 'needsBackend',
+    message: 'Would you like express/mongo as a backend?'
   },
   {
     type: 'confirm',
-    name: 'useMongoose',
-    message: 'Would you like to include MongoDB for storage?'
-  },
-  {
-    type: 'confirm',
-    name: 'useSocketIO',
-    message: 'Would you like to include Socket IO for real time communication?'
-  },
-  {
-    type: 'confirm',
-    name: 'useBaucis',
-    message: 'Would you like to include Baucis for REST?'
-  },
-  {
-    type: 'string',
-    name: 'bowerDirectory',
-    message: 'Where do you want the Bower components installed?',
-    default: 'bower_components'
+    name: 'needsSass',
+    message: 'Would you like sass installed?'
   }];
 
   this.prompt(prompts, function (props) {
     // manually deal with the response, get back and store the results.
     // we change a bit this way of doing to automatically do this in the self.prompt() method.
-    this.isFullApp = props.isFullApp;
-    this.useMongoose = props.useMongoose;
-    this.useSocketIO = props.useSocketIO;
-    this.useBaucis = props.useBaucis;
-    this.bowerDirectory = props.bowerDirectory;
-
-    //dummy vars for legacy
-    this.compassBootstrap = true;
-    this.includeRequireJS = true;
+    this.needsBackend = props.needsBackend;
+    this.needsSass = props.needsSass;
 
     cb();
   }.bind(this));
 };
 
 Generator.prototype.git = function git() {
-  if( this.isFullApp ) {
     this.template('gitignore', '.gitignore');
     this.copy('gitattributes', '.gitattributes');
-  }
 };
 
 Generator.prototype.bower = function bower() {
@@ -100,15 +75,11 @@ Generator.prototype.bower = function bower() {
 };
 
 Generator.prototype.jshint = function jshint() {
-  if( this.isFullApp ) {
     this.copy('jshintrc', '.jshintrc');
-  }
 };
 
 Generator.prototype.editorConfig = function editorConfig() {
-  if( this.isFullApp ) {
     this.copy('editorconfig', '.editorconfig');
-  }
 };
 
 Generator.prototype.gruntfile = function gruntfile() {
@@ -120,57 +91,51 @@ Generator.prototype.packageJSON = function packageJSON() {
 };
 
 Generator.prototype.mainStylesheet = function mainStylesheet() {
-  if( this.isFullApp ) {
-    if (this.compassBootstrap) {
-      this.write('app/styles/main.scss', '@import \'sass-bootstrap/lib/bootstrap\';\n\n.hero-unit {\n    margin: 50px auto 0 auto;\n    width: 400px;\n}');
-    } else {
-      this.write('app/styles/main.css', 'body {\n    background: #fafafa;\n}\n\n.hero-unit {\n    margin: 50px auto 0 auto;\n    width: 300px;\n}');
-    }
+
+  if (this.needsSass) {
+    this.write('public/styles/main.scss', '@import \'sass-bootstrap/lib/bootstrap\';\n\n.hero-unit {\n    margin: 50px auto 0 auto;\n    width: 400px;\n}');
+  } else {
+    this.write('public/styles/main.css', 'body {\n    background: #fafafa;\n}\n\n.hero-unit {\n    margin: 50px auto 0 auto;\n    width: 300px;\n}');
   }
+
 };
 
 
 Generator.prototype.bootstrapJs = function bootstrapJs() {
-  var _rootDir = this.isFullApp ? 'app/' : '';
 
-  if (this.includeRequireJS && this.compassBootstrap) {
-    this.copy('bootstrap.js', _rootDir + 'scripts/vendor/bootstrap.js');
-  }
+    this.copy('bootstrap.js', 'public/scripts/vendor/bootstrap.js');
 };
 
 Generator.prototype.setupEnv = function setupEnv() {
-  var _rootDir = this.isFullApp ? 'app/' : '';
 
   // templates
-  this.mkdir( _rootDir + 'templates' );
-  this.copy( 'app/welcome.hbs', _rootDir + 'templates/welcome.hbs');
+  this.mkdir( 'templates/' );
+  this.copy( 'app/welcome.hbs', 'templates/welcome.hbs');
 
   // server
-  if( this.isFullApp ) {
+  if( this.needsBackend ) {
     this.mkdir('server');
     this.template('server/app.js', 'server/app.js');
   }
 
   //html
-  this.template( 'app/index.html', _rootDir + 'index.html' );
+  this.template( 'app/index.html', 'public/index.html' );
 
   // js
-  this.mkdir( _rootDir + 'scripts' );
-  this.copy( 'app/main.js', _rootDir + 'scripts/main.js' );
-  this.template( 'app/init.js', _rootDir + 'scripts/init.js' );
-  this.copy( 'app/regionManager.js', _rootDir + 'scripts/regionManager.js' );
-  this.copy( 'app/application.js', _rootDir + 'scripts/application.js' );
-  this.copy( 'app/communicator.js', _rootDir + 'scripts/communicator.js' );
+  this.mkdir( 'public/scripts' );
+  this.copy( 'app/main.js', 'public/scripts/main.js' );
+  this.template( 'app/init.js', 'public/scripts/init.js' );
+  this.copy( 'app/regionManager.js', 'public/scripts/regionManager.js' );
+  this.copy( 'app/application.js', 'public/scripts/application.js' );
+  this.copy( 'app/communicator.js', 'public/scripts/communicator.js' );
 
   // other
-  if( this.isFullApp ) {
-    this.mkdir('app/styles');
-    this.mkdir('app/images');
-    this.template('app/404.html');
-    this.template('app/favicon.ico');
-    this.template('app/robots.txt');
-    this.copy('app/htaccess', 'app/.htaccess');
-  }
+  this.mkdir('public/styles');
+  this.mkdir('public/images');
+  this.template('app/404.html', 'public/404.html');
+  this.template('app/favicon.ico', 'public/favicon.ico');
+  this.template('app/robots.txt', 'public/robots.txt');
+  this.copy('app/htaccess', 'public/.htaccess');
 
 };
 

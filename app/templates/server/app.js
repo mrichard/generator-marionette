@@ -5,9 +5,9 @@ var http = require('http');
 var path = require('path');
 var async = require('async');
 var hbs = require('express-hbs');
-<% if(useBaucis){ %>var baucis = require('baucis');<% } %>
-<% if(useSocketIO){ %>var socketIO = require('socket.io');<% } %>
-<% if(useMongoose){ %>var mongoose = require('mongoose');
+var baucis = require('baucis');
+var socketIO = require('socket.io');
+var mongoose = require('mongoose');
 
 
 // start mongoose
@@ -35,7 +35,7 @@ db.once('open', function callback () {
 	    app.set('port', 9000);
 
 	    app.set('view engine', 'handlebars');
-	    app.set('views', __dirname + '../app/scripts/views');
+	    app.set('views', __dirname + '../templates');
 	});
 
     app.use('/api/v1', baucis());
@@ -47,13 +47,14 @@ db.once('open', function callback () {
 	});
 
 	// mount static
-	app.use(express.static( path.join( __dirname, '../app') ));
+	app.use(express.static( path.join( __dirname, '../templates') ));
+	app.use(express.static( path.join( __dirname, '../public') ));
 	app.use(express.static( path.join( __dirname, '../.tmp') ));
 
 
 	// route index.html
 	app.get('/', function(req, res){
-	  res.sendfile( path.join( __dirname, '../app/index.html' ) );
+	  res.sendfile( path.join( __dirname, '../public/index.html' ) );
 	});
 
 	// start server
@@ -61,38 +62,5 @@ db.once('open', function callback () {
 	    console.log('Express App started!');
 	});
 });
-<% } else { %>
 
-// init express
-var app = express();
-
-app.configure(function(){
-    app.set('port', process.env.PORT || 3000);
-
-    app.set('view engine', 'handlebars');
-    app.set('views', __dirname + '../app/scripts/views');
-});
-
-// set logging
-app.use(function(req, res, next){
-  console.log('%s %s', req.method, req.url);
-  next();
-});
-
-// mount static
-app.use(express.static( path.join( __dirname, '../app') ));
-app.use(express.static( path.join( __dirname, '../.tmp') ));
-
-
-// route index.html
-app.get('/', function(req, res){
-  res.sendfile( path.join( __dirname, '../app/index.html' ) );
-});
-
-// start server
-http.createServer(app).listen(app.get('port'), function(){
-    console.log('Express App started!');
-});
-
-<% } %>
 
