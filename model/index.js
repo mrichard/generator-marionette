@@ -27,7 +27,7 @@ util.inherits(Generator, generator.NamedBase);
 
 Generator.prototype.createModelFiles = function createModelFiles() {
   var ext = 'js';
-  var baseDir = validDir.getValidatedFolder( 'public/' );
+  var baseDir = 'public/';
   
   this.template('model.' + ext, path.join(baseDir + 'scripts/models', this.name + '.' + ext));
 };

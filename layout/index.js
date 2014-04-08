@@ -36,7 +36,7 @@ util.inherits(Generator, generator.NamedBase);
 
 Generator.prototype.createLayoutFiles = function createLayoutFiles() {
   var ext = 'js';
-  var baseDir = validDir.getValidatedFolder( 'public/' );
+  var baseDir = 'public/';
 
   this.template('layout.' + ext, path.join(baseDir + 'scripts/views/layout', this.name + '.' + ext));
 };
