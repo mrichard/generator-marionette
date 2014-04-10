@@ -12,17 +12,6 @@ function Generator() {
   var dirPath = '../templates/javascript';
   this.sourceRoot(path.join(__dirname, dirPath));
 
-
-
-  //this.argument('model', { type: String, required: false });
- // this.argument('inherit', { type: String, required: false });
-
-  //this.option('create-all', { desc: 'Create a new model for this collection' });
-
-  /*if (this.model && this.options['create-all']) {
-    this.hookFor('marionette', { as: 'model', args: [this.model, this.inherit], options: this.options });
-  }*/
-
   // invoke  mocha
   this.hookFor('mocha-amd', { 
     as: 'unitTest', 
@@ -45,13 +34,13 @@ Generator.prototype.askFor = function askFor() {
   },
   {
     name: 'model',
-    message: 'What is the ' + this.name + ' collection\'s model?',
+    message: 'What is the ' + this.name + ' Collection\'s model?',
     default: 'none'
   },
   {
     type: 'confirm',
     name: 'createAll',
-    message: 'Do you need the model also created?',
+    message: 'Do you need the Model also created?',
     default: true
   }];
 
