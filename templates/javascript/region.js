@@ -10,7 +10,9 @@ function( <%= _.classify('backbone') %><% if (!_.isEmpty(inherit)) { %>, <%=_.cl
 
 		initialize: function() {
 			console.log("initialize a <%= _.classify(name) %> Region");
-		}
+		},
+
+		el: '#<%= htmlid %>'
 	});
 
 });

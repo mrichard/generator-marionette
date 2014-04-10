@@ -12,8 +12,6 @@ function Generator() {
   var dirPath = '../templates/javascript';
   this.sourceRoot(path.join(__dirname, dirPath));
 
-  this.argument('inherit', { type: String, required: false });
-
   // invoke  mocha
   this.hookFor('mocha-amd', { 
     as: 'unitTest', 
@@ -22,6 +20,30 @@ function Generator() {
 }
 
 util.inherits(Generator, generator.NamedBase);
+
+Generator.prototype.askFor = function askFor() {
+  var cb = this.async();
+
+  var prompts = [{
+    name: 'inherit',
+    message: 'Controller to inherit from?',
+    default: 'none'
+  }];
+
+  this.prompt(prompts, function (props) {
+    // manually deal with the response, get back and store the results.
+    // we change a bit this way of doing to automatically do this in the self.prompt() method.
+
+    if( props.inherit !== 'none' ) {
+      this.inherit = props.inherit;
+    }else {
+      this.inherit = null;
+    }
+
+    cb();
+  }.bind(this));
+
+};
 
 Generator.prototype.createControllerFiles = function createControllerFiles() {
   var ext = 'js';

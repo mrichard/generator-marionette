@@ -35,7 +35,13 @@ Generator.prototype.askFor = function askFor() {
   {
     name: 'model',
     message: 'What is the ' + this.name + ' Collection\'s model?',
-    default: 'none'
+    validate: function( input ) {
+      if( !input ) {
+        return "Please enter a Model";
+      } else {
+        return true;
+      }
+    }
   },
   {
     type: 'confirm',
