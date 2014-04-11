@@ -85,8 +85,5 @@ Generator.prototype.askFor = function askFor() {
 
 
 Generator.prototype.createCollectionFiles = function createCollectionFiles() {
-  var ext = 'js';
-  var baseDir = 'public/';
-
-  this.template('collection.' + ext, path.join(baseDir + 'scripts/collections', this.name + '.' + ext));
+  this.template( 'collection.js', path.join('public/scripts/collections', this.name + '.js') );
 };

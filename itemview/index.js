@@ -56,8 +56,5 @@ Generator.prototype.askFor = function askFor() {
 };
 
 Generator.prototype.createItemViewFiles = function createItemViewFiles() {
-  var ext = 'js';
-  var baseDir = 'public/';
-
-  this.template('itemview.' + ext, path.join(baseDir + 'scripts/views/item', this.name + '.' + ext));
+  this.template( 'itemview.js', path.join('public/scripts/views/item', this.name + '.js') );
 };

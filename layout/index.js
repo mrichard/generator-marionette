@@ -55,8 +55,5 @@ Generator.prototype.askFor = function askFor() {
 };
 
 Generator.prototype.createLayoutFiles = function createLayoutFiles() {
-  var ext = 'js';
-  var baseDir = 'public/';
-
-  this.template('layout.' + ext, path.join(baseDir + 'scripts/views/layout', this.name + '.' + ext));
+  this.template( 'layout.js', path.join('public/scripts/views/layout', this.name + '.js') );
 };

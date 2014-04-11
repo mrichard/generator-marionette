@@ -47,8 +47,5 @@ Generator.prototype.askFor = function askFor() {
 };
 
 Generator.prototype.createModelFiles = function createModelFiles() {
-  var ext = 'js';
-  var baseDir = 'public/';
-  
-  this.template('model.' + ext, path.join(baseDir + 'scripts/models', this.name + '.' + ext));
+  this.template( 'model.js', path.join('public/scripts/models', this.name + '.js') );
 };

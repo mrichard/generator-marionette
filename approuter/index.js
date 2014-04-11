@@ -85,8 +85,5 @@ Generator.prototype.askFor = function askFor() {
 };
 
 Generator.prototype.createRouterFiles = function createRouterFiles() {
-  var ext = 'js';
-  var baseDir = 'public/';
-
-  this.template('approuter.' + ext, path.join(baseDir + 'scripts/approuters', this.name + '.' + ext));
+  this.template( 'approuter.js', path.join( 'public/scripts/approuters', this.name + '.js') );
 };

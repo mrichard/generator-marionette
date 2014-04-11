@@ -46,8 +46,5 @@ Generator.prototype.askFor = function askFor() {
 };
 
 Generator.prototype.createControllerFiles = function createControllerFiles() {
-  var ext = 'js';
-  var baseDir = 'public/';
-  
-  this.template('controller.' + ext, path.join(baseDir + 'scripts/controllers', this.name + '.' + ext));
+  this.template( 'controller.js', path.join('public/scripts/controllers', this.name + '.js') );
 };

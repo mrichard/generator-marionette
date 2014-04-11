@@ -101,8 +101,5 @@ Generator.prototype.askFor = function askFor() {
 
 
 Generator.prototype.createCompositeViewFiles = function createCompositeViewFiles() {
-  var ext = 'js';
-  var baseDir = 'public/';
-
-  this.template('compositeview.' + ext, path.join(baseDir + 'scripts/views/composite', this.name + '.' + ext));
+  this.template( 'compositeview.js', path.join('public/scripts/views/composite', this.name + '.js') );
 };

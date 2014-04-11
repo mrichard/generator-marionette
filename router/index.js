@@ -23,8 +23,5 @@ function Generator() {
 util.inherits(Generator, generator.NamedBase);
 
 Generator.prototype.createRouterFiles = function createRouterFiles() {
-  var ext = 'js';
-  var baseDir = 'public/';
-
-  this.template('router.' + ext, path.join(baseDir + 'scripts/routers', this.name + '.' + ext));
+  this.template('router.js', path.join('public/scripts/routers', this.name + '.js') );
 };

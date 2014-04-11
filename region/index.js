@@ -60,8 +60,5 @@ Generator.prototype.askFor = function askFor() {
 };
 
 Generator.prototype.createRegionFiles = function createRegionFiles() {
-  var ext = 'js';
-  var baseDir = 'public/';
-
-  this.template('region.' + ext, path.join(baseDir + 'scripts/regions', this.name + '.' + ext));
+  this.template( 'region.js', path.join('public/scripts/regions', this.name + '.js') );
 };
