@@ -35,7 +35,7 @@ db.once('open', function callback () {
 	    app.set('port', 9000);
 
 	    app.set('view engine', 'handlebars');
-	    app.set('views', __dirname + '../templates');
+	    app.set('views', path.join( __dirname, '<%= serverToTemplateRelativePath %>' ) );
 	});
 
     app.use('/api/v1', baucis());
@@ -47,14 +47,16 @@ db.once('open', function callback () {
 	});
 
 	// mount static
-	app.use(express.static( path.join( __dirname, '../templates') ));
-	app.use(express.static( path.join( __dirname, '../public') ));
-	app.use(express.static( path.join( __dirname, '../.tmp') ));
+	//app.use(express.static( path.join( __dirname, '../templates') ));
+
+	// map web root folder
+	app.use(express.static( path.join( __dirname, '<%= serverToWebRelativePath %>' ) );
+	app.use(express.static( path.join( __dirname, '../.tmp') ) ); //TODO
 
 
 	// route index.html
 	app.get('/', function(req, res){
-	  res.sendfile( path.join( __dirname, '../public/index.html' ) );
+	  res.sendfile( path.join( __dirname, '<%= serverToWebRelativePath %>', 'index.html' ) );
 	});
 
 	// start server

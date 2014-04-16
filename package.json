@@ -22,7 +22,8 @@
     "yeoman-generator": "~0.16.0",
     "underscore.string": "~2.3.3",
     "generator-buster": "0.0.1",
-    "chalk": "~0.2.1"
+    "chalk": "~0.2.1",
+    "js-yaml": "~3.0.2"
   },
   "devDependencies": {
     "mocha": "~1.18.2"

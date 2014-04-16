@@ -14,10 +14,10 @@
         <meta name="viewport" content="width=device-width">
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <link rel="stylesheet" href="styles/main.css">
+        <link rel="stylesheet" href="<%= cssDirectory %>/main.css">
 
         <!-- build:js scripts/vendor/modernizr.js -->
-        <script src="bower_components/modernizr/modernizr.js"></script>
+        <script src="<%= bowerDirectory %>/modernizr/modernizr.js"></script>
         <!-- endbuild -->
 
     </head>
@@ -25,7 +25,7 @@
     <body>
 
         <!-- build:js scripts/main.js -->
-        <script data-main="scripts/init" src="bower_components/requirejs/require.js"></script>
+        <script data-main="<%= jsDirectory %>/init" src="<%= bowerDirectory %>/requirejs/require.js"></script>
         <!-- endbuild -->
 
         <script>document.write('<script src="http://'

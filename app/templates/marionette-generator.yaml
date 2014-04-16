@@ -1,0 +1,7 @@
+root: "<%= rootDirectory %>"
+jsDirectory: "<%= jsDirectory %>"
+cssDirectory: "<%= cssDirectory %>"
+imageDirectory: "<%= imageDirectory %>"
+templateDirectory: "<%= templateDirectory %>"
+serverDirectory: "<%= serverDirectory %>"
+bowerDirectory: "<%= bowerDirectory %>"

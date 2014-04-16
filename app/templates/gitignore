@@ -2,5 +2,5 @@ node_modules
 temp
 dist
 .sass-cache
-public/bower_components
+<%= rootDirectory %>/<%= bowerDirectory %>
 .tmp/
