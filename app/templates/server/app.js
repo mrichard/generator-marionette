@@ -50,7 +50,7 @@ db.once('open', function callback () {
 	//app.use(express.static( path.join( __dirname, '../templates') ));
 
 	// map web root folder
-	app.use(express.static( path.join( __dirname, '<%= serverToWebRelativePath %>' ) );
+	app.use(express.static( path.join( __dirname, '<%= serverToWebRelativePath %>' ) ) );
 	app.use(express.static( path.join( __dirname, '../.tmp') ) ); //TODO
 
 

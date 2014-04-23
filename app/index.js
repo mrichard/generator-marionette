@@ -285,8 +285,8 @@ Generator.prototype.setupEnv = function setupEnv() {
     this.mkdir( path.join( pathFinder.getUnitFolderPath('server') ) );
 
     this.template('server/app.js', path.join( pathFinder.getUnitFolderPath('server'), 'app.js'), _.extend( this, pathFinder.getAllFolderData(), {
-      serverToWebRelativePath: pathFinder.getRelativePath( 'server', 'web' ),
-      serverToTemplateRelativePath: pathFinder.getRelativePath( 'server', 'template' )
+      serverToWebRelativePath: pathFinder.getRelativePath( 'server', 'root' ),
+      serverToTemplateRelativePath: pathFinder.getRelativePath( 'server', 'tmpl' )
     } ) );
   }
 
@@ -297,7 +297,7 @@ Generator.prototype.setupEnv = function setupEnv() {
   this.mkdir( pathFinder.getFullFolderPath('js') );
   this.copy( 'app/main.js', path.join( pathFinder.getFullFolderPath('js'), 'main.js' ) );
 
-  this.template( 'app/init.js', path.join( pathFinder.getFullFolderPath('js'), 'init.js' ), _.template( this, pathFinder.getAllFolderData(), {
+  this.template( 'app/init.js', path.join( pathFinder.getFullFolderPath('js'), 'init.js' ), _.extend( this, pathFinder.getAllFolderData(), {
     jsToBowerRelativePath: pathFinder.getRelativePath( 'js', 'bower' ),
     jsToTemplateRelativePath: pathFinder.getRelativePath( 'js', 'tmpl' )
   } ) );

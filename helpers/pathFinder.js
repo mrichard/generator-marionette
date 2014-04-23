@@ -68,6 +68,10 @@ module.exports = (function(){
 				_readYAML();
 			}
 
+			console.log( "filetype == " + fileType );
+			console.log( _directoryData[ _shortHandsDirectories[ fileType ] ] );
+			console.log( _directoryData[ _shortHandsDirectories["root"] ] );
+
 			return path.join( _directoryData[ _shortHandsDirectories[ fileType ] ] );
 		},
 
@@ -78,9 +82,11 @@ module.exports = (function(){
 			}
 
 			if( fileType === 'server' || fileType === 'root' ) {
-				return this.getUnitFolderPath();
+				return this.getUnitFolderPath( fileType );
 			}
 
+			console.log( "getFullFolderPath: " + _directoryData[ _shortHandsDirectories[ fileType ] ] );
+			console.log ( "getFullFolderPath: " +  _directoryData[ _shortHandsDirectories["root"] ] );
 			return path.join( _directoryData[ _shortHandsDirectories["root"] ], _directoryData[ _shortHandsDirectories[ fileType ] ] );
 		},
 
