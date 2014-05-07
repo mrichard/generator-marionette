@@ -76,10 +76,12 @@ module.exports = (function(){
 		},
 
 		// returns a folder path with root
-		getFullFolderPath: function( fileType ) {
+		getFullFolderPath: function( fileType, nestedFolder ) {
 			if( !_directoryData ) {
 				_readYAML();
 			}
+
+			nestedFolder = nestedFolder || "";
 
 			if( fileType === 'server' || fileType === 'root' ) {
 				return this.getUnitFolderPath( fileType );
@@ -87,7 +89,7 @@ module.exports = (function(){
 
 			console.log( "getFullFolderPath: " + _directoryData[ _shortHandsDirectories[ fileType ] ] );
 			console.log ( "getFullFolderPath: " +  _directoryData[ _shortHandsDirectories["root"] ] );
-			return path.join( _directoryData[ _shortHandsDirectories["root"] ], _directoryData[ _shortHandsDirectories[ fileType ] ] );
+			return path.join( _directoryData[ _shortHandsDirectories["root"] ], _directoryData[ _shortHandsDirectories[ fileType ] ], nestedFolder );
 		},
 
 		// returns all folder JSON
