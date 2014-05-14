@@ -23,8 +23,10 @@ module.exports = (function(){
 	// reads data from YAML file
 	var _readYAML = function(){
 
+		console.log( "*********************** READING YAML *****************" );
+
 		// get file path
-		var foldersConfigPath = path.resolve( process.cwd(), './app/templates/.marionette-generator.yaml');
+		var foldersConfigPath = path.resolve( process.cwd(), '.marionette-generator.yaml');
 
 		// Get document, or throw exception on error
 		try {
@@ -35,7 +37,7 @@ module.exports = (function(){
 	};
 
 	var _shortHandsDirectories = {
-		root: "rootDirectory",
+		root: "root",
 		js: 'jsDirectory',
 		css: 'cssDirectory',
 		img: 'imageDirectory',
@@ -87,6 +89,7 @@ module.exports = (function(){
 				return this.getUnitFolderPath( fileType );
 			}
 
+			console.log( _directoryData );
 			console.log( "getFullFolderPath: " + _directoryData[ _shortHandsDirectories[ fileType ] ] );
 			console.log ( "getFullFolderPath: " +  _directoryData[ _shortHandsDirectories["root"] ] );
 			return path.join( _directoryData[ _shortHandsDirectories["root"] ], _directoryData[ _shortHandsDirectories[ fileType ] ], nestedFolder );

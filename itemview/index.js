@@ -4,6 +4,7 @@ var util       = require('util');
 var path       = require('path');
 var _          = require('underscore');
 var validDir = require('../helpers/validateDirectory');
+var pathFinder = require('../helpers/pathFinder');
 
 module.exports = Generator;
 
@@ -56,5 +57,6 @@ Generator.prototype.askFor = function askFor() {
 };
 
 Generator.prototype.createItemViewFiles = function createItemViewFiles() {
-  this.template( 'itemview.js', path.join('public/scripts/views/item', this.name + '.js') );
+  var folderPath = pathFinder.getFullFolderPath( 'js', '/views/item' );
+  this.template( 'itemview.js', path.join( folderPath, this.name + '.js' ) );
 };

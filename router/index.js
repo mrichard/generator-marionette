@@ -3,6 +3,7 @@ var generator  = require('yeoman-generator');
 var util       = require('util');
 var path       = require('path');
 var validDir = require('../helpers/validateDirectory');
+var pathFinder = require('../helpers/pathFinder');
 
 
 module.exports = Generator;
@@ -23,5 +24,6 @@ function Generator() {
 util.inherits(Generator, generator.NamedBase);
 
 Generator.prototype.createRouterFiles = function createRouterFiles() {
-  this.template('router.js', path.join('public/scripts/routers', this.name + '.js') );
+	var folderPath = pathFinder.getFullFolderPath( 'js', 'routers' );
+  this.template('router.js', path.join( folderPath, this.name + '.js' ) );
 };

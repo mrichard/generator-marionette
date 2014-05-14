@@ -4,6 +4,7 @@ var util       = require('util');
 var path       = require('path');
 var _          = require('underscore');
 var validDir = require('../helpers/validateDirectory');
+var pathFinder = require('../helpers/pathFinder');
 
 
 module.exports = Generator;
@@ -86,5 +87,8 @@ Generator.prototype.askFor = function askFor() {
 
 
 Generator.prototype.createCollectionViewFiles = function createCollectionViewFiles() {
-  this.template( 'collectionview.js', path.join('public/scripts/views/collection', this.name + '.js') );
+  var folderPath = pathFinder.getFullFolderPath( 'js', '/views/collection' );
+  this.template( 'collectionview.js', path.join( folderPath, this.name + '.js' ) );
 };
+
+

@@ -4,6 +4,7 @@ var util       = require('util');
 var path       = require('path');
 var _          = require('underscore');
 var validDir = require('../helpers/validateDirectory');
+var pathFinder = require('../helpers/pathFinder');
 
 module.exports = Generator;
 

@@ -3,6 +3,7 @@ var generator  = require('yeoman-generator');
 var util       = require('util');
 var path       = require('path');
 var validDir = require('../helpers/validateDirectory');
+var pathFinder = require('../helpers/pathFinder');
 
 
 module.exports = Generator;
@@ -23,5 +24,6 @@ function Generator() {
 util.inherits(Generator, generator.NamedBase);
 
 Generator.prototype.createTmplFiles = function createTmplFiles() {
-  this.template('tmpl.js', path.join('templates', this.tmplLocation, this.name + '.hbs' ));
+	var folderPath = pathFinder.getFullFolderPath('tmpl');
+  this.template('tmpl.js', path.join( folderPath, this.tmplLocation, this.name + '.hbs' ) );
 };

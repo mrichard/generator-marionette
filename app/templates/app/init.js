@@ -28,7 +28,7 @@ require.config({
         /* alias all marionette libs */
         'backbone.marionette': '<%= jsToBowerRelativePath %>/backbone.marionette/lib/core/amd/backbone.marionette',
         'backbone.wreqr': '<%= jsToBowerRelativePath %>/backbone.wreqr/lib/amd/backbone.wreqr',
-        'backbone.babysitter': '<%= jsToBowerRelativePath %>/backbone.babysitter/lib/amd/backbone.babysitter',
+        'backbone.babysitter': '<%= jsToBowerRelativePath %>/backbone.babysitter/lib/backbone.babysitter',
 
         /* alias the bootstrap js lib */
         bootstrap: 'vendor/bootstrap',
