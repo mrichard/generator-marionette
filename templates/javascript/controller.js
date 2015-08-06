@@ -8,7 +8,7 @@ function( <%= _.classify('backbone') %><% if (!_.isEmpty(inherit)) { %>, <%=_.cl
 	return <% if (!_.isEmpty(inherit)) { %><%=_.classify(inherit)%>.extend <% } else { %>Backbone.Marionette.Controller.extend<% } %>({
 
 		initialize: function( options ) {
-			console.log("initialize a <%= _.classify(name) %> Controller");
+			console.log('initialize a <%= _.classify(name) %> Controller');
 		}
 	});
 

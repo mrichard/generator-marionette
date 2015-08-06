@@ -10,7 +10,7 @@ function( <%=_.classify('backbone')%><% if (!_.isEmpty(itemview)) { %>, <%=_.cla
 	return <% if (!_.isEmpty(inherit)) { %><%=_.classify(inherit)%>.extend <% } else { %>Backbone.Marionette.CollectionView.extend<% } %>({
 
 		initialize: function() {
-			console.log("initialize a <%= _.classify(name) %> CollectionView");
+			console.log('initialize a <%= _.classify(name) %> CollectionView');
 		},
 		<% if (!_.isEmpty(itemview)) { %>
     	itemView: <%= _.classify(itemview) %>,

@@ -11,7 +11,7 @@ function( <%= _.classify('backbone')%><% if (!_.isEmpty(itemview)) { %>, <%=_.cl
 	return <% if (!_.isEmpty(inherit)) { %><%=_.classify(inherit)%>.extend <% } else { %>Backbone.Marionette.CompositeView.extend<% } %>({
 
 		initialize: function() {
-			console.log("initialize a <%= _.classify(name) %> CompositeView");
+			console.log('initialize a <%= _.classify(name) %> CompositeView');
 		},
 		<% if (!_.isEmpty(itemview)) { %>
     	itemView: <%= _.classify(itemview) %>,<% } %>
@@ -23,7 +23,7 @@ function( <%= _.classify('backbone')%><% if (!_.isEmpty(itemview)) { %>, <%=_.cl
     	ui: {},
 
     	/* where are we appending the items views */
-    	itemViewContainer: "",
+    	itemViewContainer: '',
 
 		/* Ui events hash */
 		events: {},

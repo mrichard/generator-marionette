@@ -9,7 +9,7 @@ function( <%= _.classify('backbone') %><% if (!_.isEmpty(inherit)) { %>, <%=_.cl
 	return <% if (!_.isEmpty(inherit)) { %><%=_.classify(inherit)%>.extend <% } else { %>Backbone.Marionette.Region.extend<% } %>({
 
 		initialize: function() {
-			console.log("initialize a <%= _.classify(name) %> Region");
+			console.log('initialize a <%= _.classify(name) %> Region');
 		}
 	});
 
