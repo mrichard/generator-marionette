@@ -19,13 +19,13 @@
     "url": "https://github.com/mrichard/generator-marionette.git"
   },
   "dependencies": {
-    "yeoman-generator": "git://github.com/mrichard/generator.git",
-    "underscore.string": "~2.3.1",
+    "yeoman-generator": "git://github.com/yeoman/generator.git",
+    "underscore.string": "~2.3.3",
     "generator-buster": "~0.0.1",
-    "chalk": "~0.2.0"
+    "chalk": "~0.4.0"
   },
   "devDependencies": {
-    "mocha": "~1.8.1"
+    "mocha": "~1.17.1"
   },
   "engines": {
     "node": ">=0.8.0"
